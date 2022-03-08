@@ -1,11 +1,16 @@
 module.exports = {
-  title: 'Hello VuePress',
-  description: 'Just playing around',
+  title: 'Raquel Blog',
+  description: 'coding blog',
   base:'/blog/',
   themeConfig: {
     sidebar:[
       ['/', '首頁'],
-      ['/cate1/', 'cate1'],
+      {
+        title:'疑難雜症',
+        path:'/problems/',
+        children:
+        ['/problems/js_maps_computed.md']
+      },
       {
         title:'cate2_nest',
         path:'/cate2/',

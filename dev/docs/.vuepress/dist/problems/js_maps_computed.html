@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>【JS】 map() 與 computed 觀念釐清 | Raquel Blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="coding blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.06685cd6.css" as="style"><link rel="preload" href="/blog/assets/js/app.28873adc.js" as="script"><link rel="preload" href="/blog/assets/js/2.e61e9721.js" as="script"><link rel="preload" href="/blog/assets/js/10.a5d214b2.js" as="script"><link rel="prefetch" href="/blog/assets/js/11.f5c50dc9.js"><link rel="prefetch" href="/blog/assets/js/12.b0bf15b9.js"><link rel="prefetch" href="/blog/assets/js/3.7cac8a64.js"><link rel="prefetch" href="/blog/assets/js/4.6aa9259c.js"><link rel="prefetch" href="/blog/assets/js/5.16508133.js"><link rel="prefetch" href="/blog/assets/js/6.c7b54f12.js"><link rel="prefetch" href="/blog/assets/js/7.5db29acb.js"><link rel="prefetch" href="/blog/assets/js/8.1eb2b06e.js"><link rel="prefetch" href="/blog/assets/js/9.6cbe370b.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.06685cd6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Raquel Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/blog/" aria-current="page" class="sidebar-link">首頁</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/problems/" class="sidebar-heading clickable router-link-active open"><span>疑難雜症</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/problems/js_maps_computed.html" aria-current="page" class="active sidebar-link">【JS】 map() 與 computed 觀念釐清</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/cate2/" class="sidebar-heading clickable"><span>cate2_nest</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="【js】-map-與-computed-觀念釐清"><a href="#【js】-map-與-computed-觀念釐清" class="header-anchor">#</a> 【JS】 map() 與 computed 觀念釐清</h1> <p>製作專題遇到一個問題，想說寫下來之後忘記可以再來找查</p> <p>這裡都是將原本的陣列資料加以運算後新增資料</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 資料結構</span>
+products <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">quantity</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">product</span><span class="token operator">:</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">_id</span><span class="token operator">:</span><span class="token string">&quot;6205f11124897566f8273115&quot;</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">&quot;無花果 1 台斤&quot;</span>
+        <span class="token literal-property property">price</span><span class="token operator">:</span><span class="token number">599</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">total</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>products<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accu<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> accu <span class="token operator">+</span> curr<span class="token punctuation">.</span>quantity <span class="token operator">*</span> curr<span class="token punctuation">.</span>product<span class="token punctuation">.</span>price
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 資料結構</span>
+orders <span class="token operator">=</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">products</span><span class="token operator">:</span>
+    <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">quantity</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">product</span><span class="token operator">:</span>
+        <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+          <span class="token literal-property property">_id</span><span class="token operator">:</span><span class="token string">&quot;6205f11124897566f8273115&quot;</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">&quot;無花果 1 台斤&quot;</span>
+          <span class="token literal-property property">price</span><span class="token operator">:</span><span class="token number">599</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>orders <span class="token operator">=</span> data<span class="token punctuation">.</span>result<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">order</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  order<span class="token punctuation">.</span>total <span class="token operator">=</span> order<span class="token punctuation">.</span>products<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">accu<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> accu <span class="token operator">+</span> curr<span class="token punctuation">.</span>quantity <span class="token operator">*</span> curr<span class="token punctuation">.</span>product<span class="token punctuation">.</span>price
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> order
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>打完以後發現資料結構有點小複雜，我的天ＱＱ</p> <p>簡單來說就是我需要新增總價［ 價格 × 數量 ］</p> <p>但都是總價為什麼使用兩種方式來獲得</p> <ol><li>使用 computed</li> <li>使用 map() + reduce()</li></ol> <h3 id="使用-computed"><a href="#使用-computed" class="header-anchor">#</a> 使用 computed</h3> <p>若使用 computed 代表當更改 quantity 數量則會重新運算</p> <h3 id="使用-map-reduce"><a href="#使用-map-reduce" class="header-anchor">#</a> 使用 map() + reduce()</h3> <p>使用 使用 map() + reduce() 代表我剛從後端拿到資料的時候就加以運算，且 quantity 不會改變時使用</p> <p>大概釐清兩者之間的差異之後，開始解析 map(), reduce() 這兩者的功能
+雖然知道 map(), reduce() 這兩個方法拿來做什麼，但不常使用導致觀念模糊
+所以後面用簡單的範例來實作一下</p> <h4 id="先將資料結構簡單化-只需要價格與數量個兩個變數就好"><a href="#先將資料結構簡單化-只需要價格與數量個兩個變數就好" class="header-anchor">#</a> 先將資料結構簡單化，只需要價格與數量個兩個變數就好</h4> <p>然後打開 chrome F12 console 面板來測試</p> <div class="language-js extra-class"><pre class="language-js"><code>data <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">299</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">399</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">199</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">111</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><p>依樣畫葫蘆
+MDN 官方文件這樣寫的
+arr.reduce(callback[accumulator, currentValue, currentIndex, array], initialValue)
+當我們加總時 callback 只需要 accumulator, currentValue 變數，initialValue 起始值為 0</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> total <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">.</span>quantity <span class="token operator">*</span> b<span class="token punctuation">.</span>price<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// total = 6193</span>
+</code></pre></div><p>我們來看看 map() 這個傢伙</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> maps <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> x<span class="token punctuation">.</span>quantity <span class="token operator">*</span> x<span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [2093, 3591, 398, 111]</span>
+</code></pre></div><p>這樣就達到相乘加總
+但四個傢伙要加在一起才是總價
+再用一次 reduce() 來處理</p> <div class="language-js extra-class"><pre class="language-js"><code>maps<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 6193</span>
+</code></pre></div><p>結果一樣！！！
+那來合併一下</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">299</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">399</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">199</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">quantity</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">price</span><span class="token operator">:</span> <span class="token number">111</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  x<span class="token punctuation">.</span>total <span class="token operator">=</span> x<span class="token punctuation">.</span>price <span class="token operator">*</span> x<span class="token punctuation">.</span>quantity<span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// x value</span>
+<span class="token comment">// {quantity: 7, price: 299, total: 2093}</span>
+<span class="token comment">// {quantity: 9, price: 399, total: 3591}</span>
+<span class="token comment">// {quantity: 2, price: 199, total: 398}</span>
+<span class="token comment">// {quantity: 1, price: 111, total: 111}</span>
+<span class="token comment">// data value</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [ {quantity: 7, price: 299, total: 2093},</span>
+<span class="token comment">// {quantity: 9, price: 399, total: 3591},</span>
+<span class="token comment">// {quantity: 2, price: 199, total: 398},</span>
+<span class="token comment">// {quantity: 1, price: 111, total: 111} ]</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">.</span>total<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 6193</span>
+</code></pre></div><p>ok 我合併不起來ＱＱ
+先放著下次再戰ＸＤＤ</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/" class="prev router-link-active">
+        首頁
+      </a></span> <span class="next"><a href="/blog/cate2/test1.html">
+        test1
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.28873adc.js" defer></script><script src="/blog/assets/js/2.e61e9721.js" defer></script><script src="/blog/assets/js/10.a5d214b2.js" defer></script>
+  </body>
+</html>
