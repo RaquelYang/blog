@@ -2,7 +2,12 @@ module.exports = {
   title: 'Raquel Blog',
   description: 'coding blog',
   base:'/blog/',
+  logo:'./public/favicon.ico',
   themeConfig: {
+    nav: [
+      { text: '首頁', link: '/' },
+      { text: 'Github', link: 'https://github.com/RaquelYang' }
+    ],
     sidebar:[
       ['/', '首頁'],
       {
@@ -12,11 +17,11 @@ module.exports = {
         ['/problems/js_maps_computed.md']
       },
       {
-        title:'cate2_nest',
-        path:'/cate2/',
+        title:'Vuepress 筆記',
+        path:'/Vuepress_note/',
         children:[
-          '/cate2/test1.md',
-          '/cate2/test2.md',
+          '/Vuepress_note/install.md',
+          '/Vuepress_note/test2.md',
         ]
       }
     ]
