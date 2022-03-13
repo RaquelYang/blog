@@ -18,10 +18,20 @@ module.exports = {
       },
       {
         title:'Vuepress 筆記',
-        path:'/Vuepress_note/',
+        path:'/vuepress_note/',
         children:[
-          '/Vuepress_note/install.md',
-          '/Vuepress_note/test2.md',
+          '/vuepress_note/install.md',
+          '/vuepress_note/test2.md',
+        ]
+      },
+      {
+        title:'Vue2 筆記',
+        path:'/vue/',
+        children:[
+          '/vue/dataflow.md',
+          '/vue/lifecycle.md',
+          '/vue/nuxt.md',
+          '/vue/vuex.md',
         ]
       }
     ]
