@@ -1,9 +1,4 @@
----
-title: Vuex
-tags: Vue, Vuex
----
-
-# Vuex
+# Vuex 簡介
 
 ## 管理 Vue 資料
 
@@ -30,8 +25,10 @@ Getter > State 的 computed
 
 ### 寫入 >
 
-讀取 API > components dispatch actions > actions commit mutations > mutations mutate state
-直接改動資料(未碰到 API) > components commit mutations
+讀取 API
+
+- components dispatch actions > actions commit mutations > mutations mutate state
+- 直接改動資料(未碰到 API) > components commit mutations
 
 ### 讀取 >
 
@@ -39,6 +36,8 @@ Getter > State 的 computed
 資料進行整理後再使用 > getter
 components 讀取 state 資料
 使用 computed 拿取資料
+
+### Component
 
 ```vue
 <!--  components -->
@@ -58,9 +57,10 @@ mounted(){
 Actions 很重要
 Context 內有 commit, dispatch, getters, state
 
+### Store
+
 ```vue
 <script>
-<!-- Store  -->
 actions:{ getList(context, day){
 <!--   呼叫mutations   -->
 context.commit('setDay',day) return axios.get('/list.json').then(res=>{

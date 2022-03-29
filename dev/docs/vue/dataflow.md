@@ -1,17 +1,15 @@
 ---
-title: props, emit, refs
+title: props, emit, refs 資料傳遞
 tags: Vue
 ---
 
-# 元件之間的資料傳遞與事件
-
-## props & emit & ref
+# 元件之間的資料傳遞與事件觸發 （props & emit & ref）
 
 ## 父子資料傳遞與事件
 
-props 父層資料傳遞到子層
-emit 子層傳遞事件到父層
-ref 父層傳遞事件到子層
+- props 父層資料傳遞到子層
+- emit 子層傳遞事件到父層
+- ref 父層傳遞事件到子層
 
 ```vue
 <!-- 父層 -->

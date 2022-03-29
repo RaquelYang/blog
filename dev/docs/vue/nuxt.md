@@ -1,9 +1,4 @@
----
-title: Nuxt
-tags: Vue, Nuxt
----
-
-# Nuxt
+# Nuxt 簡介
 
 ## Nuxt 是什麼
 
