@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{371:function(t,n,e){},400:function(t,n,e){"use strict";e(371)},423:function(t,n,e){"use strict";e.r(n);e(400);var u=e(56),s=Object(u.a)({},(function(){var t=this.$createElement;return(this._self._c||t)("button",[this._v("這是按鈕組件")])}),[],!1,null,null,null);n.default=s.exports}}]);
