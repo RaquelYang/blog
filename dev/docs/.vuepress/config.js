@@ -4,9 +4,14 @@ module.exports = {
   base: "/blog/",
   logo: "./public/favicon.ico",
   themeConfig: {
-    nav: [
-      { text: "首頁", link: "/" },
-      { text: "Github", link: "https://github.com/RaquelYang" },
+    nav: [{
+        text: "首頁",
+        link: "/"
+      },
+      {
+        text: "Github",
+        link: "https://github.com/RaquelYang"
+      },
     ],
     sidebar: [
       ["/", "首頁"],
@@ -50,8 +55,37 @@ module.exports = {
       {
         title: "AJAX 筆記",
         path: "/ajax/",
-        children: ["/ajax/", "/ajax/ajax.md"],
+        children: ["/ajax/"],
       },
+      {
+        title: "Firebase 筆記",
+        path: "/firebase/",
+        children: ["/firebase/",
+          "/firebase/calendar1.md",
+          "/firebase/calendar2.md",
+          "/firebase/calendar3.md",
+          "/firebase/calendar4.md",
+        ],
+      },
+      {
+        title: "Angular 筆記",
+        path: "/angular/",
+        children: [
+          "/angular/",
+          "/angular/pipe.md",
+          "/angular/module.md",
+          "/angular/rxjs.md",
+          "/angular/directives.md",
+          "/angular/databinding.md",
+        ],
+      },
+      {
+        title: "Typescript 筆記",
+        path: "/typescript/",
+        children: [
+          "/typescript/",
+        ],
+      }
     ],
   },
 };
