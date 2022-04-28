@@ -73,7 +73,6 @@ module.exports = {
         children: [
           "/angular/",
           "/angular/pipe.md",
-          "/angular/module.md",
           "/angular/rxjs.md",
           "/angular/directives.md",
           "/angular/databinding.md",

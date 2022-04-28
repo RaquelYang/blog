@@ -292,3 +292,244 @@ Angular 安全導覽運算子只能使用在 html 的 template 裡
 <!-- 改寫成下面這樣 -->
 <a [href]="item.href">{{ item['subject']?.title }}</a>
 ```
+
+## Angular 元件架構
+
+Angular 是由各種 Component 組成
+
+父子元件可以使用使用屬性繫結、事件繫結來傳遞資料
+
+Service 透過相依注入(DI) 注入到特定 Component 裡面
+
+當專案越大時就會把相關的元件(Component, Service)分割成 Module(功能模組,Feature Module)
+
+## 模組化架構
+
+建立一個 Module ，在終端機輸入，Angular CLI 會自動幫我們建立 article.module.ts
+
+```sh
+ng g m article
+```
+
+建立完 Module 後須引入到 app.module.ts 裡面
+
+app.module.ts
+
+```ts
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { FormsModule } from "@angular/forms";
+// import ArticleModule
+import { ArticleModule } from "./article/article.module";
+
+@NgModule({
+  declarations: [AppComponent],
+  // import ArticleModule
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ArticleModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+另外一種建立方式
+
+建立 module 並自動引入到 app module 裡(感覺方便好用＝Ｄ)
+
+```sh
+ng g m article -m app
+```
+
+將 Article 拆解成元件 ArticleList > ArticleHeader, ArticleBody 並引入到 ArticleModule 裡面
+
+首先
+
+要在 Article 資料夾建立 ArticleList 元件，直接在 vscode folder 按下右鍵選擇“在整合式終端機開啟”
+
+此時開啟終端機的位置就會在 Article 資料夾下，打以下指令即可建立 article-list 元件
+
+```sh
+ng g c article-list
+```
+
+建立完之後需在 ArticleModule exports ArticleListComponent (這樣在 app template 才能使用)
+
+```ts
+@NgModule({
+  declarations: [
+    ArticleListComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports:[
+    ArticleListComponent
+  ]
+})
+```
+
+接下來把 app.component.html 的 article 搬入 article-list 裡，並在 app.component.html 加入 app-article-list tag
+
+app.component.ts data 搬入 article-list.component.ts 裡
+
+在 article-list 下建立 article-header, article-body (一樣需注意終端機的位置，在 article 資料夾下)
+
+```sh
+ng g c article-header
+ng g c article-body
+```
+
+且要注意這裡的 article-header, article-body 不需在 ArticleModule exports 出來，因為它們隸屬於 article-list 內(只需 exports article-list)
+
+一樣把 header, body 放入該放的 template 裡，並將 tag 寫入 article-list 即可(此時因為元件化導致資料找不到報錯，後續使用@Input 來處理)
+
+在 article-header, article-body 的 ts 內加入 @Input 讓資料傳入子層，記得要 import Input 進來才能用
+
+```ts
+import { Component, OnInit, Input } from "@angular/core";
+
+@Component({
+  selector: "app-article-body",
+  templateUrl: "./article-body.component.html",
+  styleUrls: ["./article-body.component.scss"],
+})
+export class ArticleBodyComponent implements OnInit {
+  @Input() item;
+  constructor() {}
+  ngOnInit(): void {}
+}
+```
+
+然後在 article-list 裡使用屬性繫結綁定父層資料到子層
+
+```html
+<article
+  class="post"
+  id="post{{idx}}"
+  *ngFor="let item of data;let idx = index"
+>
+  <!-- [父層變數]="子層變數" -->
+  <app-article-header [item]="item"></app-article-header>
+  <app-article-body [item]="item"></app-article-body>
+</article>
+```
+
+## 生命週期
+
+```ts
+export class ArticleHeaderComponent implements OnInit {
+  @Input() item;
+  // 建構式 > class 被建立時執行 > 基本上不會寫程式在裡面
+  // 元件上未初始化，故無法使用屬性，但會使用相依注入 DI
+  constructor() {}
+  // 元件 property binding 已完成，可以對一些屬性給初始值或發出 ajax 跟後端拿取資料
+  ngOnInit(): void {}
+  // 銷毀前的 hook, only 1% 使用到,rxjs subscribe() 可能會使用到
+  ngOnDestroy() {}
+}
+```
+
+接下來改一下 article-list.component.ts 的資料，先定義一個變數 data 在 ngOnInit() 給這個 data 一個初始值
+
+```ts
+export class ArticleListComponent implements OnInit {
+  // 定義變數
+  data;
+  constructor() { }
+  ngOnInit(): void {
+    // 給初始值
+    this.data = [
+     ...
+    ]
+  }
+}
+```
+
+## @Output
+
+在 article-header 裡面新增一個刪除按鈕
+
+```html
+<header>
+  ...
+  <span>
+    <button (click)="deleteList">刪除文章</button>
+  </span>
+  ...
+</header>
+```
+
+因為資料由父層傳送到子層，無法直接由子層刪除資料，處理的方式為按下子層的按鈕後通知父層刪除資料，所以子層按鈕只有通知的功能，並無刪除的功能，刪除需由父層來操作
+
+在子層定義一個 @Output 送出一個 EventEmitter 事件發射器出來，EventEmitter import 時要注意從 '@angular/core' import 進來
+
+在 button click 時觸發 deleteList() 的方法
+
+```ts
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+
+export class ArticleHeaderComponent implements OnInit {
+  @Input()
+  item: any;
+  // 子層定義一個 EventEmitter
+  @Output()
+  delete = new EventEmitter<any>();
+
+  constructor() {}
+
+  ngOnInit(): void {}
+  deleteList() {
+    // 使用 EventEmitter 裡的 emit 傳 this.item 出去
+    this.delete.emit(this.item);
+  }
+}
+```
+
+在 article-list 裡新增事件 (delete) 當子層 click button 時會觸發 (delete) 讓父層執行 doDelete($event)，$event 為子層傳出來的值
+
+article-list.component.html
+
+```html
+<article
+  class="post"
+  id="post{{idx}}"
+  *ngFor="let item of data;let idx = index"
+>
+  <app-article-header
+    [item]="item"
+    (delete)="doDelete($event)"
+  ></app-article-header>
+  <app-article-body [item]="item"></app-article-body>
+</article>
+```
+
+article-list.component.ts
+
+```ts
+doDelete(item:any){
+  console.log(item);
+}
+```
+
+此時只要點擊按鈕以後就會觸發父層 doDelete($event)，$event 回傳的是 \*ngFor 跑的 item
+
+改寫一下 doDelete()
+
+在寫改寫 data.filter 時後面沒有提示訊息，將 data 定義成 Array 當 data. 就可以使用陣列的方法
+
+```ts
+export class ArticleListComponent implements OnInit {
+  data: Array<any> = [];
+
+  doDelete(item: any) {
+    this.data = this.data.filter((data: any) => {
+      return item !== data;
+    });
+  }
+}
+```
+
+接下來嘗試看看可不可以刪除資料，可以刪除代表就成功了
