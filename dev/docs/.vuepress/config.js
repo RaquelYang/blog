@@ -84,6 +84,13 @@ module.exports = {
         children: [
           "/typescript/",
         ],
+      },
+      {
+        title: "Material 筆記",
+        path: "/material/",
+        children: [
+          "/material/",
+        ],
       }
     ],
   },
