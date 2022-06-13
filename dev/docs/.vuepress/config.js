@@ -16,6 +16,27 @@ module.exports = {
     sidebar: [
       ["/", "首頁"],
       {
+        title: "Angular Pollex",
+        path: "/angular_pollex/",
+        children: [
+          "/angular_pollex/",
+          "/angular_pollex/week1",
+        ],
+      },
+      {
+        title: "Angular 筆記",
+        path: "/angular/",
+        children: [
+          "/angular/",
+          "/angular/pipe.md",
+          "/angular/rxjs.md",
+          "/angular/directives.md",
+          "/angular/databinding.md",
+          "/angular/form.md",
+          "/angular/form2.md",
+        ],
+      },
+      {
         title: "疑難雜症",
         path: "/problems/",
         children: [
@@ -67,19 +88,7 @@ module.exports = {
           "/firebase/calendar4.md",
         ],
       },
-      {
-        title: "Angular 筆記",
-        path: "/angular/",
-        children: [
-          "/angular/",
-          "/angular/pipe.md",
-          "/angular/rxjs.md",
-          "/angular/directives.md",
-          "/angular/databinding.md",
-          "/angular/form.md",
-          "/angular/form2.md",
-        ],
-      },
+      
       {
         title: "Typescript 筆記",
         path: "/typescript/",
@@ -93,7 +102,8 @@ module.exports = {
         children: [
           "/material/",
         ],
-      }
+      },
+      
     ],
   },
 };
