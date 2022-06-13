@@ -76,6 +76,8 @@ module.exports = {
           "/angular/rxjs.md",
           "/angular/directives.md",
           "/angular/databinding.md",
+          "/angular/form.md",
+          "/angular/form2.md",
         ],
       },
       {
