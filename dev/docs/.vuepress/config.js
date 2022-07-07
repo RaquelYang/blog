@@ -21,6 +21,17 @@ module.exports = {
         children: [
           "/angular_pollex/",
           "/angular_pollex/week1",
+          "/angular_pollex/week2",
+          "/angular_pollex/week3",
+          "/angular_pollex/week4",
+        ],
+      },
+      {
+        title: "Angular Project",
+        path: "/angular_project/",
+        children: [
+          "/angular_project/",
+          "/angular_project/formQuestions.md",
         ],
       },
       {
@@ -34,6 +45,7 @@ module.exports = {
           "/angular/databinding.md",
           "/angular/form.md",
           "/angular/form2.md",
+          "/angular/nameCalled.md",
         ],
       },
       {

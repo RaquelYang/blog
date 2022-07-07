@@ -125,7 +125,7 @@ ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
 ...
 ```
 
-如果要放預設值，需改成 \[(ngModel)]
+如果要放預設值，需改成 <pre>[(ngModel)]</pre> 
 
 ```html
 <div class="mb-3 col-6">
@@ -145,10 +145,12 @@ ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
 title = "lorem@scd.com";
 ```
 
+```html
 假如目前的需求是某個表單需要驗證還能填寫，這樣需改寫 input。
 input 多一個 #t="ngModel"， ngModel 會回傳 Formcontrol 的東西，下面的 required 為 !!t.value，然後再將 t.valid 列印出來
 
 以下寫法代表假如說第一個 input 有值，那第二個 input 為必填；如果第一個 input 沒有值，第二的 input 為非必填
+```
 
 ```html
 {{ f.valid }}
@@ -238,7 +240,11 @@ editor.component.html
 
 原本的 name 改成 formControlName 這樣就會從 formGroup 裡面抓它的屬性
 
+
+```html
 取值的方式使用 {{ formData.value | json}}，一開始會給 null (因為沒給預設值)而非空值
+```
+
 
 若要給預設值直接在 new FormControl('abc') 即可
 
@@ -521,11 +527,11 @@ addtag() {
   });
 }
 ```
+```html
+此時在 <input type="text" [formControl]="$any(tagControl)" /> 修改值時會直接改動
 
-此時在 `<input type="text" [formControl]="$any(tagControl)" />` 修改值時會直接改動
-
-在迴圈在跑時添加 idx 變數並加入 `<button (click)="remove(idx)">x</button>`
-
+在迴圈在跑時添加 idx 變數並加入 <button (click)="remove(idx)">x</button>
+```
 ```html
 <div formArrayName="tagList">
   <ul>
