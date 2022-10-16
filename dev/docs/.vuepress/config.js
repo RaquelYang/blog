@@ -46,6 +46,7 @@ module.exports = {
           "/angular/form.md",
           "/angular/form2.md",
           "/angular/nameCalled.md",
+          "/angular/reactFormValidator.md",
         ],
       },
       {
@@ -56,6 +57,7 @@ module.exports = {
           "/problems/js_maps_computed.md",
           "/problems/concept.md",
           "/problems/filter.md",
+          "/problems/duplicate.md",
         ],
       },
       {
@@ -100,7 +102,6 @@ module.exports = {
           "/firebase/calendar4.md",
         ],
       },
-      
       {
         title: "Typescript 筆記",
         path: "/typescript/",
@@ -113,6 +114,13 @@ module.exports = {
         path: "/material/",
         children: [
           "/material/",
+        ],
+      },
+      {
+        title: "樣式筆記",
+        path: "/style/",
+        children: [
+          "/style/",
         ],
       },
       

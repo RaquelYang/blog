@@ -333,7 +333,7 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
     // 取得 formData 的值的兩種方式
     // 多層寫法較複雜
-    // this.formData.controls.group,controls.field;
+    // this.formData.controls.group.controls.field;
     // 單層寫法 1
     // this.formData.controls.title;
     // 很多層可以這樣寫，TS 嚴謹模式也可以使用
