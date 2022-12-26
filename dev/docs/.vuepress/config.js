@@ -16,6 +16,19 @@ module.exports = {
     sidebar: [
       ["/", "首頁"],
       {
+        title: "webpack 環境建置",
+        path: "/environment_setup/",
+        children: [
+          "/environment_setup/",
+          "/environment_setup/webpack-part2",
+          "/environment_setup/webpack-part3",
+          "/environment_setup/webpack-part4",
+          "/environment_setup/webpack-part5",
+          "/environment_setup/webpack-part6",
+          "/environment_setup/webpack-part7",
+        ],
+      },
+      {
         title: "Angular Pollex",
         path: "/angular_pollex/",
         children: [
@@ -46,7 +59,8 @@ module.exports = {
           "/angular/form.md",
           "/angular/form2.md",
           "/angular/nameCalled.md",
-          "/angular/reactFormValidator.md",
+          "/angular/reactForm.md",
+          "/angular/deploy.md",
         ],
       },
       {
@@ -117,7 +131,7 @@ module.exports = {
         ],
       },
       {
-        title: "樣式筆記",
+        title: "CSS style",
         path: "/style/",
         children: [
           "/style/",
