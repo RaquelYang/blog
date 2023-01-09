@@ -1,11 +1,11 @@
-# webpack 前端環境建置 part5
+# webpack4 前端環境建置 part5
 
 ### 用 babel 來編譯 js
 
 先來安裝 babel
 
 ```sh
-npm install babel-loader @babel/core @babel/preset-env -D
+npm install babel-loader@8 @babel/core @babel/preset-env -D
 ```
 
 babel-loader: 轉譯 js

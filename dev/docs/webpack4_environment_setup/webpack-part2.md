@@ -1,4 +1,4 @@
-# webpack 前端環境建置 part2
+# webpack4 前端環境建置 part2
 
 webpack 去讀取其他副檔名的檔案
 
@@ -9,6 +9,7 @@ css : css-loader
 先到 npm 看一下
 
 ```sh
+# npm install --save-dev css-loader@1.0.1
 npm install --save-dev css-loader
 ```
 
@@ -24,7 +25,7 @@ module.exports = {
       // 每個 ob 中的規則
       {
         // 使用正則表達式來判斷副檔名
-        test: /\.css$/i,
+        test: /\.css$/,
         // loader 順序由後面向前執行
         // "css-loader" => "style-loader"
         use: ["style-loader", "css-loader"],
@@ -106,6 +107,7 @@ resolve 'style-loader' in ......
 他說 module 無法 resolve 'style-loader' 這個東西（因爲還沒安裝）
 
 ```sh
+# npm i style-loader@0.23.1 -D
 npm i style-loader -D
 npm run watch
 ```
@@ -122,54 +124,33 @@ npm run watch
 npm i -D extract-text-webpack-plugin@next
 ```
 
-ok 報錯 到官網去看發現此套件將被棄用 [2022-10-27]，到另一個推薦的套件[mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
+webpack.config.js
 
-```sh
-npm install --save-dev mini-css-extract-plugin
-```
-
-ok 沒報錯ＱＡＱ
-
-按照官網的文件來看，先引入 mini-css-extract-plugin 至 webpack.config.js
+把 css 獨立出來，改完以後 style-loader 就不需要放到 js 裡面了，可以拿掉
 
 ```js
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-```
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var extractCSS = new ExtractTextPlugin('css/[name].css');
 
-```js
 module.exports = {
-  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.css$/,
+        use: extractCSS.extract([ "css-loader"]),
       },
     ],
   },
-};
+  plugins: [
+    extractCSS
+  ]
+}
 ```
-
-改完以後 style-loader 就不需要放到 js 裡面了，可以拿掉
 
 刪掉 dist folder 再重新 deploy 後會發現多了一個 css 檔案，成功分離～
 
-假如我想要編譯完以後把 css 放在指定位置，把 plugins 改成下面那樣
-
-```js
-module.exports = {
-  plugins: [new MiniCssExtractPlugin({
-    filename: "css/[name].css"
-  })],
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-    ],
-  },
-};
+```sh
+npm run deploy
 ```
 
 ### 是否需要獨立 css?
@@ -187,6 +168,7 @@ module.exports = {
 ## PostCSS + autoprefixer 來幫瀏覽器加入前綴字
 
 ```sh
+# npm i postcss-loader@3 autoprefixer@9.3.1 -D
 npm i postcss-loader autoprefixer -D
 ```
 
@@ -215,8 +197,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        test: /\.css$/,
+        use: extractCSS.extract([ "css-loader", "postcss-loader"]),
       },
     ],
   },
@@ -243,7 +225,7 @@ ok 又報錯～
   https://twitter.com/browserslist
 ```
 
-postcss.config.js 檔案
+把 postcss.config.js 改寫
 
 ```js
 module.exports = {
@@ -266,50 +248,4 @@ module.exports = {
 npm run start
 ```
 
-順利解決，但好像沒有前綴字 =(( why~~~ 明天再說ＱＱ
-
-因為上次的改用 MiniCssExtractPlugin 套件前綴字沒有出來的問題
-
-找了一陣子發現...原來是 postcss.config.js 那邊的問題
-
-原本的 code
-
-```js
-module.exports = {
-  plugin: [
-    require('autoprefixer')({
-      overrideBrowserslist: [
-        '> 1%',
-        'last 5 versions',
-        'Firefox >= 45',
-        'iOS >= 8',
-        "Safari >= 8",
-        "ie >= 10"
-      ]
-    })
-  ]
-}
-```
-
-後來的 code
-
-```js
-module.exports = {
-  plugins: [
-    require('autoprefixer')({
-      overrideBrowserslist: [
-        '> 1%',
-        'last 5 versions',
-        'Firefox >= 45',
-        'iOS >= 8',
-        "Safari >= 8",
-        "ie >= 10"
-      ]
-    })
-  ]
-}
-```
-
-plugins 要加 s =)
-
-終於順利解決了ＱＡＱ
+可以 start 但沒前綴ＱＱ

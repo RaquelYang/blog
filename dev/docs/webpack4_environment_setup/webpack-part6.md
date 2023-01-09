@@ -1,4 +1,20 @@
-# webpack 前端環境建置 part6
+# webpack4 前端環境建置 part6
+
+### babel/polyfill
+
+```sh
+npm i @babel/polyfill
+```
+
+在 index.js 引入 babel/polyfill
+
+編譯跟打包後就會載入到你打包的 js 裏面
+
+```js
+import 'babel/polyfill';
+```
+
+import 後可以使用 async, await 與其他的東西(...)
 
 ### Resolve 
 
@@ -8,6 +24,7 @@ webpack.config.js
 
 ```js
 module.exports = {
+  output: {...},
   resolve: {
     modules: [
       path.resolve('src'),
@@ -36,7 +53,6 @@ import "index.html";
 
 加入 extensions 就不需要加入副檔名
 
-
 ```js
 import "index.scss";
 import "index.html";
@@ -51,7 +67,7 @@ extensions 可以設定多個，但檔名不能一樣，如果一樣 webpack 會
 
 output 不能拿掉
 
-原本
+原本 entry
 ```js
 module.exports = {
   entry: {
@@ -82,6 +98,8 @@ npm i url-loader -D
 
 在 webpack.config.js 加入設定
 
+一般 limit 設定 8192 (官方建議)
+
 ```js
 module.exports = {
   module: {
@@ -102,7 +120,10 @@ module.exports = {
   }
 }
 ```
-scss/ sass 那邊規則需要改一下，先把 css 放到 js 裡面再透過 loader 轉換後放到 css 裡面
+scss/ sass 那邊規則需要改一下
+
+透過 style-loader 先把 css base64 放到 js 裡面再透過 loader 轉換後放到 css 裡面
+
 ```js
 module.exports = {
   module: {
@@ -137,64 +158,7 @@ module.exports = {
 }
 ```
 
-隨便找幾張圖片放入 images 資料夾內，然後又出不來了ＱＡＱ
-
-下面留言區作者有找到資源，因爲 webpack5 直接把 url-loader 包在裡面，故不需使用 url-loader，直接使用內建的 asset/inline
-
-```js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        type: 'asset',
-        // 與可以自定義大小
-        parser: {
-          dataUrlCondition: {
-            maxSize: 4 * 1024 // 4kb
-          }
-        },
-        generator: {
-          // 自定義名稱，加入 hash 紀錄路徑來做快取，只要 hash 不一樣就會重新載入圖片 hash
-          filename: '[path][name].[ext]?[hash:8]',
-        },
-      }
-    ]
-  }
-}
-```
-
-[Webpack5 Asset Module 使用小结](https://juejin.cn/post/7116432242875826190)
-
-這篇文章有提到
-
-- asset/resource：将资源文件输出到指定的输出目录，作用等同于 file—loader；
-
-- asset/inline：将资源文件内容以指定的格式进行编码（一般为 base64），然后以 data URI 的形式嵌入到生成的 bundle 中，作用等同于 url-loader；
-
-- asset/source：将资源文件的内容以字符串的形式嵌入到生成的 bundle 中，作用相当于 raw-loader；
-
-- asset：作用等同于设置了 limit 属性的 url-loader，即资源文件的大小如果小于 limit 的值（默认值为 8kb），则采用 asset/inline 模式，否则采用 asset/resource 模式。
-
-再來實做一下，目前圖片大小為 8.4KB，並無被轉碼成 base64，那在找小一點的圖檔，找了一個 3KB 的圖片確認有轉成 base64
-
-```sh
-npm run dev
-```
-
-所以 3KB 在 deploy 時在 dist 資料夾裡面不會有圖片輸出，8.4 KB 則會輸出，但目前輸出在外層，並不是在 images 資料夾內
-
-需在 output 加入 assetModuleFilename，這樣輸出就可以在指定資料夾內
-
-```js
-module.exports = {
-  output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: './js/[name].js',
-    assetModuleFilename: './images/[hash][ext][query]',
-  }
-}
-```
+隨便找幾張圖片放入 images 資料夾內看有沒有轉成 base64
 
 在 html, scss 加入
 
@@ -209,5 +173,14 @@ module.exports = {
   background: url('1.jpeg');
 }
 ```
+此時會報錯，因為 webpack 只有對 js 有用，若要在 scss 上寫上縮寫路徑需改成以下
 
-此時因爲 webpack5 已經 resolve 編譯過，scss background 故不需再寫前面的網址
+```scss
+#box {
+  width: 300px;
+  height: 300px;
+  background: url('~1.jpeg');
+}
+```
+
+

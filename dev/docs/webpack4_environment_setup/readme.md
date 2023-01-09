@@ -1,4 +1,4 @@
-# webpack 前端環境建置 part1
+# webpack4 前端環境建置 part1
 
 需先安裝 node.js, nvm, vscode
 
@@ -6,11 +6,16 @@
 
 > 在終端機打入下面指令
 ```sh
+#  使用 node v.10
+nvm use 10
 npm init -y
+# 安裝指定版本
+# npm i webpack@4.26.0 webpack-cli@3.1.2 --save-dev
 npm i webpack webpack-cli --save-dev
 ```
 
 > 新增一個檔案 webpack.config.js
+
 ```js
 module.exports = {
   // 進入點
@@ -22,7 +27,9 @@ module.exports = {
 }
 ```
 
-> 修改 package.json script
+再新增一個 index.js 檔案（進入點）
+
+> 修改 package.json scripts
 
 ```json
 "scripts": {
@@ -64,6 +71,7 @@ module.exports = {
 > 使用環境變數 NODE_ENV，mac 不需要安裝可以直接讀到值，windows 需安裝且 package.json script 前面需加入 cross-env
 
 ```sh
+# npm i cross-env@5.2.0 --save-dev
 npm i cross-env --save-dev
 ```
 
@@ -159,7 +167,9 @@ module.exports = {
   }
 }
 ```
+
 在執行打包時，在 dist 就會發現有兩個檔案
+
 ```sh
 npm run deploy
 ```

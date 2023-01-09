@@ -1,9 +1,8 @@
-# webpack 前端環境建置 part3
+# webpack4 前端環境建置 part3
 
 檔案搬移，目前較主流的開發方式為 src -> 開發資料夾、 dist 編譯後檔案資料夾，所以我們先把 index.html 放到 src 資料夾內
 
 來顯示目前資料夾結構前，我們使用 tree 來顯示，因為指令問題先加入 .gitignore 資料夾
-
 
 ```.gitignore
 node_modules
@@ -46,6 +45,7 @@ import "../index.html";
 因爲 html 不需被瀏覽器編譯，所以不需要安裝 html loader，我們需要的是把 index.html 搬檔案從 src 搬到 dist 裡面去 (使用 file-loader)
 
 ```sh
+# npm i -D file-loader@2.0.0
 npm i -D file-loader
 ```
 
@@ -136,6 +136,7 @@ index.html
 ### 加入 sass-loader 
 
 ```sh
+# npm i -D sass-loader@7.1.0 node-sass@4.10.0
 npm i -D sass-loader node-sass
 ```
 
@@ -155,6 +156,7 @@ module.exports = {
   }
 }
 ```
+
 在 src 建立 scss 資料夾並新增一個 index.scss 檔案
 
 隨便寫一些樣式
@@ -175,12 +177,11 @@ module.exports = {
   module : {
     rules: {
       test: /\.(sass|scss)$/i,
-      use: [
-        MiniCssExtractPlugin.loader,
+      use: extractCSS.extract([
         "css-loader", 
         "postcss-loader",
         "sass-loader"
-      ]
+      ])
     }
   }
 }

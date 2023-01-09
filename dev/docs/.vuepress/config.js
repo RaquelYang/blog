@@ -16,16 +16,18 @@ module.exports = {
     sidebar: [
       ["/", "首頁"],
       {
-        title: "webpack 環境建置",
-        path: "/environment_setup/",
+        title: "webpack4 環境建置",
+        path: "/webpack4_environment_setup/",
         children: [
-          "/environment_setup/",
-          "/environment_setup/webpack-part2",
-          "/environment_setup/webpack-part3",
-          "/environment_setup/webpack-part4",
-          "/environment_setup/webpack-part5",
-          "/environment_setup/webpack-part6",
-          "/environment_setup/webpack-part7",
+          "/webpack4_environment_setup/",
+          "/webpack4_environment_setup/webpack-part2",
+          "/webpack4_environment_setup/webpack-part3",
+          "/webpack4_environment_setup/webpack-part4",
+          "/webpack4_environment_setup/webpack-part5",
+          "/webpack4_environment_setup/webpack-part6",
+          "/webpack4_environment_setup/webpack-part7",
+          "/webpack4_environment_setup/webpack-part8",
+          "/webpack4_environment_setup/webpack-part9",
         ],
       },
       {
