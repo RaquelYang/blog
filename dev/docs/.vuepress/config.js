@@ -3,8 +3,10 @@ module.exports = {
   description: "coding blog",
   base: "/blog/",
   logo: "./public/favicon.ico",
+  theme: 'yuu',
   themeConfig: {
-    nav: [{
+    nav: [
+      {
         text: "首頁",
         link: "/"
       },
@@ -141,5 +143,16 @@ module.exports = {
       },
       
     ],
+    lastUpdated: 'Last Updated', // string | boolean
   },
+  plugins: [
+    '@vuepress/back-to-top',
+    '@vuepress/nprogress',
+    ['@vuepress/pwa',  
+      {
+        serviceWorker: true,
+        updatePopup: true
+      }
+    ]
+  ]
 };
