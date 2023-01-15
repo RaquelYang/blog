@@ -1,19 +1,24 @@
-# webpack4 前端環境建置 part9
+# webpack4 環境建置-9
 
-### entry.js, vendor.js
+## entry.js, vendor.js
 
-目前情況是 node_modules 跟自己的 js 放在同一包裡面，當修正檔案時需要在重新打包 node_modules + js，後面做法是將 
+目前情況是 node_modules 跟自己的 js 放在同一包裡面
 
-node_modules => Vendor.js
+當修正檔案時需要在重新打包 node_modules + js，後面做法是將 
 
-js => Entry.js
 
-這樣可以增加打包效率
+node_modules 打包成 Vendor.js
 
-webpack.config.js
+js 打包成 Entry.js
+
+這樣編譯時只需要編譯 Entry.js 進而增加打包效率
+
+`webpack.config.js`
 
 ```js
+// webpack.config.js
 var webpack = require('webpack');
+
 module.exports = {
   resolve: {
     ...
@@ -42,16 +47,17 @@ module.exports = {
       viewport: 'width=device-width, initial-scale=1.0',
       // 對這個模板載入 index.js
       chunks: ['vendor', 'index']
-    }),
+    })
   ]
 }
 ```
 
-### include, exclude
+## include, exclude
 
-webpack.config.js
+`webpack.config.js`
 
 ```js
+// webpack.config.js
 module.exports = {
    module: {
     rules: [
@@ -65,7 +71,7 @@ module.exports = {
         ],
         include: path.resolve('src/scss'),
         exclude: path.resolve('./node_modules')
-      },
+      }
     ]
   }
 }

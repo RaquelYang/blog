@@ -1,6 +1,6 @@
-# webpack4 前端環境建置 part7
+# webpack4 環境建置-7
 
-### Images webpack loader
+## Images webpack loader
 
 ```sh
 npm i -D images-webpack-loader
@@ -8,7 +8,9 @@ npm i -D images-webpack-loader
 
 直接在 asset 下面加個 use，會先判斷 image 是否要壓縮再進行 base64 轉換
 
+`webpack.config.js`
 ```js
+// webpack.config.js
 module.exports = {
   module: {
     rules: [
@@ -51,18 +53,22 @@ module.exports = {
 }
 ```
 
-### copy-webpack-plugin
+## copy-webpack-plugin
 
 當檔案不需用到 loader 編譯時，只需要從起始資料夾搬到 dist 資料夾內
 
 ```sh
+# terminal
+# npm i copy-webpack-plugin@4.5.4 -D
 npm i copy-webpack-plugin -D
 ```
 
-webpack.config.js
+`webpack.config.js`
 
 ```js
+// webpack.config.js
 const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
   plugins: [
     extractCSS,
@@ -75,9 +81,10 @@ module.exports = {
 }
 ```
 
-新增 assets folder 新增一個 1.txt (內容隨便打)
+新增 assets folder 新增一個 1.txt
 
 ```sh
+# terminal
 npm run deploy
 ```
 
@@ -86,7 +93,10 @@ npm run deploy
 裡面可以放：zip, mp3, 字型檔...等等
 
 但如果在 assets 放入字型檔，在 scss 引入的話會報錯，需在 webpack 內加入規則，放在 scss, css 上面
+
+`webpack.config.js`
 ```js
+// webpack.config.js
 module.exports = {
   resolve: {
     modules: [
@@ -109,64 +119,14 @@ module.exports = {
 }
 ```
 
-### copy-webpack-plugin
+`index.scss`
 
-
-```sh
-npm i copy-webpack-plugin@4.5.4 -D
-```
-
-webpack.config.js
-
-直接把他放到 plugin 裏面， from 是從 assets 複製到 dist assets 資料夾內
-```js
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-module.exports = {
-  plugins: [
-    new CopyWebpackPlugin([{
-      from: "assets", to: "assets"
-    }])
-  ]
-}
-```
-
-在 src 新增 assets 資料夾並加入一個 abc.txt 檔案
-
-```sh
-npm run deploy 
-```
-
-打包後會發現 dist 資料夾內多了一個 assets 資料夾，檔案被搬到 dist 內
-
-若有字型檔 ex. .ttf ...等需要在 webpack 寫下規則
 ```scss
+// index.scss
 @font-face {
   font-family: "AAA";
   src: url(~assets/xxx.ttf)
 }
 ```
 
-webpack.config.js
-
-```js
-module.exports = {
-  resolve: {
-    modules: [
-      path.resolve('src/assets')
-    ],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(woff|woff2|ttf|eot))$/,
-        loader: "file-loader",
-        options: {
-          name: '[path][name].[ext]?[hash:8]'
-        }
-      }
-    ]
-  }
-}
-```
-
-如果想用 scss 或 js 去讀取其他副檔名的東西時需要寫在 rules 裏面
+如果想用 scss 或 js 去讀取其他副檔名的東西時需要寫在 rules 裡面

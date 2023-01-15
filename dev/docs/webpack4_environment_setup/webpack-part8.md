@@ -1,6 +1,6 @@
-# webpack4 前端環境建置 part8
+# webpack4 環境建置-8
 
-### ProvidePlugin
+## ProvidePlugin
 
 使用 webpack 內建的方法把套件換成全域變數，以下使用 jquery 當作範例
 
