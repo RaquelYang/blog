@@ -1,24 +1,22 @@
 # 使用 yarn 安裝 vuepress 與 github 部署
 
-[youtube 教學連結](https://www.youtube.com/watch?v=G7sAfqDqH3s)
+[vuepress 教學連結]
 
-這次使用 yarn 來安裝 vuepress 並部署到 github 當作技術文件
+使用 `yarn` 來安裝 `vuepress` 並部署到 github 當作技術文件
 
-先到 github 開一個新專案名稱為 **vuepress** 再使用 gitkraken clone 到自己的電腦，完成以後將 repo initial
+先到 github 開一個新專案名稱為 `vuepress` 再使用 gitkraken clone 到自己的電腦，完成以後將 repo initial
 
-然後使用 vscode 打開專案資料夾 **vuepress**
+然後使用 vscode 打開專案資料夾 `vuepress`
 
-(如果沒安裝 yarn 可以先安裝一下)
+若沒安裝 yarn 可以先安裝
 
-```bash
+```sh
 npm install -g yarn
 ```
 
-接下來建立兩個資料夾
+接下來建立兩個資料夾 `dev` 與 `docs`
 
-一個 dev 另外一個 docs
-
-```bash
+```sh
 # 資料夾結構
 .
 ├── dev
@@ -27,23 +25,18 @@ npm install -g yarn
 
 進入到 dev 資料夾
 
-```bash
+在 dev 資料夾 init yarn 專案
+
+```sh
 cd dev
-```
-
----
-
-以下為 dev 資料夾
-
-```bash
 yarn init
 ```
 
-初始化時會問你一些問題，看個人怎麼修改，我直接 enter 到底
+初始化時會問你一些問題，看個人怎麼修改
 
-dev 資料夾就會產生 package.json 把裡面的 "name":"vuepress(你的專案名稱)"
+dev 資料夾就會產生 `package.json` 把裡面的 "name": "vuepress(你的專案名稱)"
 
-```js
+```json
 {
   "name": "vuepress",
   "version": "1.0.0",
@@ -52,17 +45,23 @@ dev 資料夾就會產生 package.json 把裡面的 "name":"vuepress(你的專�
 }
 ```
 
-輸入下面指令把加入 vuepress
+加入 `vuepress`
 
-```bash
+```sh
 yarn add -D vuepress
 ```
 
-再新增一個檔案 .gitignore (輸入 node_modules ) 意思是推到 github 的時候忽略指定資料夾
+新增 `.gitignore` 裡面打入下列程式碼
+
+```
+node_modules
+```
+
+意思是推到 github 的時候忽略 node_modules 資料夾
 
 此時資料夾結構會長這樣
 
-```bash
+```sh
 # 資料夾結構
 .
 ├── node_modules
@@ -71,16 +70,16 @@ yarn add -D vuepress
 └── yarn.lock
 ```
 
-接下來在 package.json 加入 scripts 腳本，目的為簡化
+在 `package.json` 加入 scripts
 
-```js
+```json
  "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   }
 ```
 
-package.json 檔案會長這樣
+`package.json` 內容如下
 
 ```json
 {
@@ -98,7 +97,7 @@ package.json 檔案會長這樣
 }
 ```
 
-如果你懶惰的話可以把 script 指令縮短 (我就懶 :laughing: )
+如果你懶惰的話可以把 script 指令縮短 - 我就懶 :laughing:
 
 ```js
  "scripts": {
@@ -107,9 +106,9 @@ package.json 檔案會長這樣
   }
 ```
 
-再新增一個資料夾 docs
+再新增一個資料夾 `docs`
 
-```bash
+```sh
 # 資料夾結構
 .
 ├── docs
@@ -119,15 +118,13 @@ package.json 檔案會長這樣
 └── yarn.lock
 ```
 
-進入 docs 資料夾內 (主要攥寫文章都在這邊)
+進入 `docs` 資料夾內，主要攥寫文章都在這邊
 
-裡面新增 readme.md ( vuepess 的首頁 )
+裡面新增 readme.md - vuepress 的首頁
 
-可以隨便打個文字 ( Hello world )
+可以隨便打個文字
 
-(現在長這樣)
-
-```bash
+```sh
 # 資料夾結構
 .
 ├── docs
@@ -138,29 +135,19 @@ package.json 檔案會長這樣
 └── yarn.lock
 ```
 
-終端機打入啟動 vuepress
+啟動 vuepress
 
-```bash
+```sh
 yarn dev
 ```
 
 如果成功會顯示 readme.md 的資料
 
-再新增一個 .vuepress
+再 `docs` 新增一個 `.vuepress`
 
-```bash
-# 資料夾結構
-.
-├── docs
-│   ├── .vuepress
-│   └── readme.md
-├── node_modules
-├── .gitignore
-├── package.json
-└── yarn.lock
-```
+在 `.vuepress` 新增一個設定檔 `config.js`
 
-```bash
+```sh
 # 資料夾結構
 .
 ├── docs
@@ -171,18 +158,12 @@ yarn dev
 └── yarn.lock
 ```
 
-在 .vuepress 新增一個設定檔 config.js 裡面要設定一些資訊
-
-```js
-module.exports = {
-  title: "Hello VuePress",
-  description: "Just playing around",
-};
-```
-
 先貼上官網的預設值，在新增個 base ， base 後面的名稱需要為 github 儲存庫的名稱
 
+`config.js`
+
 ```js
+// config.js
 module.exports = {
   title: "Hello VuePress",
   description: "Just playing around",
@@ -194,12 +175,14 @@ module.exports = {
 
 先停止終端機並打包
 
-```bash
+```sh
 yarn build
 ```
 
-build 完以後 .vuepress 會多一個 dist 資料夾
+build 完以後 `.vuepress` 內會多一個 `dist` 資料夾
 
-把 dist 檔案複製到最上層的 docs (vuepress 進入點) 再 push 到 github
+把 `dist` 檔案複製到最上層的 `docs` (vuepress 進入點) 再 push 到 github
 
 會後再去設定 github pages 使用 docs 為進入點，最後就完成了！！！
+
+[vuepress 教學連結]: https://www.youtube.com/watch?v=G7sAfqDqH3s
