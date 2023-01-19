@@ -24,14 +24,18 @@ export class AppComponent {
 <li *ngFor="let todo of todos$ | async">{{ todo.title }}</li>
 ```
 
-有時候做專案時因為 rxjs 資料尚未回來但瀏覽器已經在 render 畫面，導致跑迴圈或做判斷時會造成無資料的問題，可能會讓網頁破版或無法渲染在瀏覽器上
+有時候做專案時因為 rxjs 資料尚未回來但瀏覽器已經在 render 畫面
+
+導致跑迴圈或做判斷時會造成無資料的問題，可能會讓網頁破版或無法渲染在瀏覽器上
 
 所以使用 pipe async 時，當瀏覽器 render 到此 html 時就會進行訂閱
 
-### 類延遲載入
+## 類延遲載入
 
+畫面一開始不會載入資料，因為 todos$ | async 的部分並沒有被載入
 
-畫面一開始不會載入資料，因為 todos$ | async 的部分並沒有被載入，當按下按鈕把 this.load 設為 true 時，才會進行訂閱就可以在真正需要資料時才進行載入的動作，避免不必要的 API 呼叫啦！（省資源）
+當按下按鈕把 this.load 設為 true 時，才會進行訂閱就可以在真正需要資料時才進行載入的動作，避免不必要的 API 呼叫啦！（省資源）
+
 ```ts
 @Component({
   selector: 'my-app',
@@ -42,6 +46,7 @@ export class AppComponent {
   </ul>
   `
 })
+
 export class AppComponent {
   load: boolean;
   todos$: Observable<any[]>;
@@ -58,7 +63,7 @@ export class AppComponent {
 }
 ```
 
-### 使用 shareReplay 避免重複載入
+## 使用 shareReplay 避免重複載入
 
 這樣 api 就只會打一次
 
@@ -71,8 +76,9 @@ ngOnInit() {
 }
 ```
 
-### 搭配 ngIf 使用
+## 搭配 ngIf 使用
 
+`修改前`
 ```html
 <ng-container *ngIf="todos$ | async; else loading">>
   <ul>
@@ -82,7 +88,7 @@ ngOnInit() {
 <ng-template #loading>Loading...</ng-template>
 ```
 
-修改後
+`修改後`
 ```html
 <ng-container *ngIf="todos$ | async as todos; else loading">
   <ul>
@@ -92,6 +98,10 @@ ngOnInit() {
 </ng-container>
 ```
 
-[認識 AsyncPipe (1) - 基本使用技巧](https://fullstackladder.dev/blog/2018/11/11/mastering-angular-27-async-pipe/)
+[認識 AsyncPipe (1) - 基本使用技巧]
 
-[全端開發人員天梯](https://fullstackladder.dev/blog/)
+[全端開發人員天梯]
+
+[認識 AsyncPipe (1) - 基本使用技巧]: https://fullstackladder.dev/blog/2018/11/11/mastering-angular-27-async-pipe/
+
+[全端開發人員天梯]: https://fullstackladder.dev/blog/

@@ -1,10 +1,10 @@
 # ReactForm 表單
 
-### 常用的 Directives
+## 常用的 Directives
 
-- FormControlName
-- FormGroupName
-- FormArrayName
++ FormControlName
++ FormGroupName
++ FormArrayName
 
 建立一個FormArray
 

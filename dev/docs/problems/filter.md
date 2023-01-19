@@ -1,31 +1,31 @@
 # 【JS】的 filter
 
 最近在複習 todolist 但發現對於 filter() 這個方法觀念有點模糊，所以來寫一下遇到的問題
-先到 mdn wev docs 看一下 filter 相關的資料 [filter()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+先到 mdn wev docs 看一下 filter 相關的資料 [filter()]
 
-定義：<code>filter()</code> 方法會建立一個經指定之函式運算後，由原陣列中通過該函式檢驗之元素所構成的新陣列。
+定義：`filter()` 方法會建立一個經指定之函式運算後，由原陣列中通過該函式檢驗之元素所構成的新陣列。
 
-語法
+語法：
 
 <code>
 var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
 </code>
 
-### 參數
+## 參數
 
-#### callback
+### callback
 
 此函式為一個斷言，用於測試陣列中的每個元素。回傳值為 true 時將當前的元素保留至新陣列中，若為 false 則不保留。可傳入三個參數：
 
-#### element
+### element
 
 原陣列目前所迭代處理中的元素。
 
-#### index 選擇性
+### index 選擇性
 
 原陣列目前所迭代處理中的元素之索引。
 
-#### array 選擇性
+### array 選擇性
 
 呼叫 filter 方法的陣列。
 thisArg 選擇性
@@ -118,3 +118,5 @@ console.log("undo", undo);
 這樣就可以得到我需要的東西了
 
 再進階一點，我使用變數來判斷我需要 filter 的條件
+
+[filter()]: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/filter

@@ -1,8 +1,6 @@
 # 【JS】var, let, const 差異
 
-## JavaScript: var, let, const 差異
-
-### var
+## var
 
 若不宣告變數可能不知道變數從哪裡來，造成全域污染，多人開發可能造成問題。
 
@@ -135,7 +133,7 @@ var a = 1;
 console.log(a); // 1
 ```
 
-### let, const
+## let vs const
 
 ```js
 // let 只存在 {} 內
@@ -201,9 +199,9 @@ function fn(a) {
 fn(1);
 ```
 
-#### let const 差異
+### let 與 const 差異
 
-const 無法重新賦值
+const 無法重新賦值  
 let 可以重新賦值
 
 物件傳參考（記憶體位置）

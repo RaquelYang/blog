@@ -1,41 +1,41 @@
 # 資料繫結的四種方法
 
-- ### 內嵌繫結 (Interpolation)
++ 內嵌繫結 (Interpolation)
   ```html
   {{ xproperty }}
   ```
-- ### 屬性繫結 (Property Binding)
++ 屬性繫結 (Property Binding)
   ```html
   [property] = 'statement'
   ```
-- ### 事件繫結 (Event Binding)
++ 事件繫結 (Event Binding)
 
   ```html
   (event) = someMethod($event)
   ```
 
-- ### 雙向繫結 (Two-way Binding)
++ 雙向繫結 (Two-way Binding)
   ```html
   [(ngModel)] = property
   ```
 
 ## 內嵌繫結
 
-將資料使用內嵌繫結加入到 html，首先看到 app.component.ts 元件內有筆資料 title
+將資料使用內嵌繫結加入到 html，首先看到 `app.component.ts` 元件內有筆資料 title
 
 ```ts
 export class AppComponent {
-  title = "demo";
-  url = "http://blog.miniasp.com/";
+  title = 'demo';
+  url = 'http://blog.miniasp.com/';
 }
 ```
 
-進入到 app.component.html 約 30 行把 h1 資料取代成為 title 把 href 取代為 url ，並進入到網頁中確認資料是否有傳入
+進入到 `app.component.html` 約 30 行把 h1 資料取代成為 title 把 href 取代為 url ，並進入到網頁中確認資料是否有傳入
 
 ```html
 <div class="pull-left">
   <h1><a href="{{ url }}">{{ title }}</a></h1>
-  <h3>記載著 Will 在網路世界的學習心得與技術分享</h3>
+  <h3>技術分享</h3>
 </div>
 ```
 
@@ -71,7 +71,7 @@ export class AppComponent {
 
 ## 屬性繫結
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class AppComponent {
@@ -80,20 +80,20 @@ export class AppComponent {
 }
 ```
 
-app.component.html 的 href 改成以下程式碼，則為屬性繫結
+### `範例 1`  
+`app.component.html` 的 href 改成以下程式碼，則為屬性繫結
 
 ```html
-<!-- 範例 1 -->
 <div class="pull-left">
   <!-- [href]="url" -->
   <h1><a [href]="url">{{ title }}</a></h1>
-  <h3>記載著 Will 在網路世界的學習心得與技術分享</h3>
+  <h3>技術分享</h3>
 </div>
 ```
 
 圖片的 title 則會綁定 title 資料，圖片的 src 綁定 imgUrl
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class AppComponent {
@@ -102,11 +102,10 @@ export class AppComponent {
   imgUrl = "/assets/images/logo.png";
 }
 ```
-
-app.component.html
+### `範例 2`
+`app.component.html`
 
 ```html
-<!-- 範例 2 -->
 <img
   [title]="title"
   [src]="imgUrl"
@@ -115,17 +114,15 @@ app.component.html
 />
 ```
 
-但 data-attribute 無法使用屬性繫結，使用
-<code style="color:red;">
-<b>[data-title]="title"</b>
-</code>
-則會報錯，因為 Angular 找不到 img DOM 裡面的 property
+但 data-attribute 無法使用屬性繫結，使用 `[data-title]="title"` 則會報錯
+
+因為 Angular 找不到 img DOM 裡面的 property
 
 如何查看 DOM 的 property > 選到指定的 DOM 右鍵檢查 > 選擇 elements > 下面面板選擇 properties > 即可找到該 DOM 的 property
 
 以 img 為例在 filter 裡面尋找 title, src, class 皆可以找到 property
 
-app.component.html
+`app.component.html`
 
 ```html
 <!-- 範例二 -->
@@ -140,7 +137,7 @@ app.component.html
 
 但如果想要動態綁定 data-attribute 則要改成以下程式碼，這樣就能動態綁定 attribute
 
-app.component.html
+`app.component.html`
 
 ```html
 <img
@@ -156,7 +153,7 @@ app.component.html
 
 在 DOM 元件上觸發事件，以下例子為點擊圖片後更換圖片的 title
 
-app.component.html
+`app.component.html`
 
 ```html
 <img
@@ -182,7 +179,7 @@ export class AppComponent {
 
 ### 事件繫結傳入參數 $event
 
-app.component.html
+`app.component.html`
 
 ```html
 <img
@@ -194,7 +191,7 @@ app.component.html
 />
 ```
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class AppComponent {
@@ -216,7 +213,7 @@ PointerEvent 裡面有許多參數可以使用
 - altKey > 點擊時是否有按 Alt (option)
 - ctrlKey > 點擊時是否有按 Ctrl
 
-### <b>範例一</b>
+### `範例一`
 
 假如需求為按下 Alt (option) 後更換 title 名字，程式碼可以改成以下
 
@@ -236,13 +233,13 @@ export class AppComponent {
 
 測試後 click 並無反應，需按著 Alt (option) + click 則可以改變 title
 
-### <b>範例二</b>
+### `範例二`
 
 優化以上程式碼
 
 直接在 html 直接傳入 $event.altKey
 
-app.component.html
+`app.component.html`
 
 ```html
 <img
@@ -256,7 +253,7 @@ app.component.html
 
 因為傳入為 altKey 的值，此型態為 boolean 後續在網頁上測試確認也可以成功更改 title
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class AppComponent {
@@ -274,7 +271,7 @@ export class AppComponent {
 
 在 ts 程式裡面新增一個 keyword 變數預設值為空字串
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class AppComponent {
@@ -289,11 +286,11 @@ export class AppComponent {
 }
 ```
 
-在 input 裡面加入<code> [(ngModel)]="keyword" </code>
+在 input 裡面加入`[(ngModel)]="keyword"`
 
 代表雙向綁定 keyword 這個變數，但因為此時 Angular 不認識<code>[()]</code>，需在 module 引入 FormsModule 才行
 
-app.component.html
+`app.component.html`
 
 ```html
 <!-- 約 160 行的 search start -->
@@ -316,7 +313,7 @@ app.component.html
 
 import FormsModule 後就不會報錯
 
-app.module.ts
+`app.module.ts`
 
 ```ts
 import { NgModule } from "@angular/core";
@@ -352,7 +349,7 @@ export class AppModule {}
 <span>字串長度：{{ keyword.length }} 個字</span>
 ```
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class AppComponent {

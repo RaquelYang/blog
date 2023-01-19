@@ -1,17 +1,21 @@
 # 三種 Angular 指令 (Directives)
 
-- ### 元件型指令
-  <b>component</b>
-- ### 屬性型指令
++ ### 元件型指令
+  `component`
++ ### 屬性型指令
 
-  <b>修改元素的外觀或行為 - NgStyle, NgClass</b>
+  修改元素的外觀或行為 `NgStyle`, `NgClass`
 
-  <span style="color:#666"> ＊常使用 NgClass</span>
+  常使用 NgClass
 
-- ### 結構型指令 (Structure Directives) - 新增或刪除 DOM 改變 DOM 結構
-  <b>NgIf, NgFor, NgSwitch 來控制 DOM 結構</b>
-  <div style="color:#666"> ＊ngSwitch 前不加星號</div>
-  <div style="color:#666"> ＊ngIf, ngFor, ngSwitchDefault, ngSwitchCase 前加星號</div>
++ ### 結構型指令 (Structure Directives)
+
+  新增或刪除 DOM 改變 DOM 結構 
+  
+  `NgIf`, `NgFor`, `NgSwitch` 來控制 `DOM` 結構
+
+  + ngSwitch 前不加星號
+  + ngIf, ngFor, ngSwitchDefault, ngSwitchCase 前加星號
 
 ## 元件型指令
 
@@ -21,15 +25,15 @@
 ng g c footer
 ```
 
-然後把 app.component.html 裡面的 footer 搬到 footer.component.html 裡面
+然後把 `app.component.html` 裡面的 footer 搬到 `footer.component.html` 裡面
 
-footer.component.html
+`footer.component.html`
 
 ```html
 <footer class="footer">...</footer>
 ```
 
-再到 app.component.html 引入 footer
+再到 `app.component.html` 引入 footer
 
 ```html
 ...
@@ -37,7 +41,7 @@ footer.component.html
 <app-footer></app-footer>
 ```
 
-到 footer.component.ts 看元件的內容
+`footer.component.ts`
 
 ```ts
 import { Component, OnInit } from "@angular/core";
@@ -73,13 +77,11 @@ export class FooterComponent implements OnInit {
 }
 ```
 
-## 屬性型指令
+## 屬性型指令 NgStyle, NgClass
 
-### <b>NgStyle, NgClass</b>
+### NgStyle
 
-> NgStyle
-> <span></span>
-> 範例一
+### `範例一`
 
 首先在 header.component.ts 建立變數 counter 並在 changeTitle() 觸發時讓 counter++
 
@@ -100,12 +102,11 @@ export class HeaderComponent implements OnInit {
 }
 ```
 
-header.component.html
-
 在 subtitle 上加入 {{ counter }} 以便觀測資料變更，h3 tag 裡面加入 ngStyle
 
 所以每當 click img 時會觸發 changeTitle() 讓 counter++ 連動 h3 字型大小
 
+`header.component.html`
 ```html
 ...
 <img
@@ -118,14 +119,15 @@ header.component.html
 />
 ...
 <h3 [ngStyle]="{'font-size': 12 + counter + 'px'}">
-  記載著 Will 在網路世界的學習心得與技術分享 {{ counter }}
+  技術分享 {{ counter }}
 </h3>
 ```
 
-範例二
+### `範例二`
 
 寫入一個 return function
 
+`header.component.html`
 ```html
 ...
 <img
@@ -138,9 +140,11 @@ header.component.html
 />
 ...
 <h3 [ngStyle]="getStyle()">
-  記載著 Will 在網路世界的學習心得與技術分享 {{ counter }}
+  技術分享 {{ counter }}
 </h3>
 ```
+
+`header.component.ts`
 
 ```ts
 export class HeaderComponent implements OnInit {
@@ -156,14 +160,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   getStyle() {
     return { "font-size": 12 + this.counter + "px" };
   }
 }
 ```
 
-範例三
+### `範例三`
 
+`header.component.html`
 ```html
 ...
 <img
@@ -176,39 +182,41 @@ export class HeaderComponent implements OnInit {
 />
 ...
 <h3 [style.font-size]="(12 + counter) + 'px'" [style.color]="'red'">
-  記載著 Will 在網路世界的學習心得與技術分享 {{ counter }}
+  技術分享 {{ counter }}
 </h3>
 ```
 
-> NgClass
+### NgClass
 
-範例一
+### `範例一`
 
-ngClass 後面綁定的值為 boolean，當 counter 餘數等於零時會加入 .highlight class
+`ngClass` 後面綁定的值為 boolean，當 counter 餘數等於零時會加入 .highlight class
 
+`header.component.html`
 ```html
 <h3 [ngClass]="{'highlight': counter % 2 == 0}">
-  記載著 Will 在網路世界的學習心得與技術分享 {{ counter }}
+  技術分享 {{ counter }}
 </h3>
 ```
 
+`header.component.scss`
 ```scss
 .highlight {
   background-color: coral;
 }
 ```
 
-範例二
+### `範例二`
 
 ```html
 <h3 [class.highlight]="counter % 2 == 0">
-  記載著 Will 在網路世界的學習心得與技術分享 {{ counter }}
+  技術分享 {{ counter }}
 </h3>
 ```
 
 ## 結構型指令
 
-> ngIf 的用法
+### ngIf
 
 當 2 餘數等於 0 時整個 DOM 會不見，餘數不等於 0 時就會出現，若 \*ngIf 裡面放入 component directive 當消失在出現時資料會重新 Init (特別注意)
 
@@ -218,7 +226,7 @@ ngClass 後面綁定的值為 boolean，當 counter 餘數等於零時會加入 
 </div>
 ```
 
-> ngSwitch
+### ngSwitch
 
 基本語法如下
 
@@ -296,7 +304,7 @@ expression > 判斷式的值
 </div>
 ```
 
-> ngFor
+### ngFor
 
 使用 ngFor 跑文章的內容
 
@@ -329,7 +337,7 @@ export class AppComponent {
 
 把 article html 只留下一個其他的刪除，在 article tag 跑 ngFor 迴圈，再把資料帶進 html 裡面
 
-app.component.html
+`app.component.html`
 
 ```html
 <article

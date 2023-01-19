@@ -1,15 +1,5 @@
 # 萬年曆 Calendar Part3
 
-使用的架構為 Vue + Vuetify + Firebase storage
-
-版本別如下：
-| 名稱 | 版本 |
-| ---- | ---- |
-| Vue | 2.6.11 |
-| Vuetify | 2.6.0 |
-| Firebase | 9.6.10 |
-| firestore | 1.1.6 |
-
 把原始的內容稍為整理一下，把 components 裡面的 HelloWord.vue 刪除，建立 Calendar.vue
 
 ```vue
@@ -148,4 +138,6 @@ export default {
 
 現在架構已經整理得差不多了，最後再增加新增、修改、刪除就完成了
 
-[source code](https://github.com/RaquelYang/vue-calendar-vuetify-firebase) 因為接下來都是片段整理，如果有不清楚的地方可以找到 source code 來看一下
+[source code] 因為接下來都是片段整理，如果有不清楚的地方可以找到 source code 來看一下
+
+[source code]: https://github.com/RaquelYang/vue-calendar-vuetify-firebase

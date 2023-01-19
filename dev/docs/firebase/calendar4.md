@@ -1,16 +1,6 @@
 # 萬年曆 Calendar Part4
 
-使用的架構為 Vue + Vuetify + Firebase storage
-
-版本別如下：
-| 名稱 | 版本 |
-| ---- | ---- |
-| Vue | 2.6.11 |
-| Vuetify | 2.6.0 |
-| Firebase | 9.6.10 |
-| firestore | 1.1.6 |
-
-[source code](https://github.com/RaquelYang/vue-calendar-vuetify-firebase) 因為接下來都是片段整理，如果有不清楚的地方可以找到 source code 來看一下
+[source code] 因為接下來都是片段整理，如果有不清楚的地方可以找到 source code 來看一下
 
 建立刪除、修改功能，以下截取部分程式碼，擷取 v-calendar 下面的 v-menu
 
@@ -203,3 +193,5 @@ export default {
 ```
 
 end !!! finally !!!
+
+[source code]: https://github.com/RaquelYang/vue-calendar-vuetify-firebase

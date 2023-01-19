@@ -1,8 +1,6 @@
 # Grid Template
 
-參考資料
-
-[CSS Grid Course](https://www.youtube.com/watch?v=t6CBKf8K_Ac&t=2185s)
+教學影片：[CSS Grid Course]
 
 ## First Grid
 
@@ -38,7 +36,11 @@ rows(直向)：每行各 100px
 ```
 ![first grid](../assets/images/grid/first-grid.png)
 
-還有其他可以變化的地方，可把寬度改成 fr 的單位，比如說 grid-template-columns: 1fr 1fr 1fr; 代表將容器的寬度平均分成三份，每一個 column 得到一份
+還有其他可以變化的地方，可把寬度改成 fr 的單位
+
+比如說 grid-template-columns: 1fr 1fr 1fr; 代表將容器的寬度平均分成三份
+
+每一個 column 得到一份
 
 ```scss
 .container {
@@ -144,8 +146,13 @@ grid-template: rows / columns;
 
 ## Grid area
 
-使用 Grid area 來排 layout，先賜予不同 class grid-area 名字，然後再使用 grid-template-areas 當成畫布來畫圖，看起來非常直覺，想要改改 layout 也很快
-* 但如果 column, row 太多會寫太多(範例為 12 欄)
+使用 Grid area 來排 layout，先賜予不同 class grid-area 名字
+
+然後再使用 grid-template-areas 當成畫布來畫圖
+
+看起來非常直覺，想要改改 layout 也很快
+
++ 但如果 column, row 太多會寫太多(範例為 12 欄)
 
 ```html
 <div class="container">
@@ -277,7 +284,13 @@ grid-template: rows / columns;
 ![Auto-Fit and MinMax](../assets/images/grid/autoFit4.png)
 ![Auto-Fit and MinMax](../assets/images/grid/autoFit5.png)
 
-但這邊又有個問題就是當不滿 50px 右邊會留白，將 columns 寬度改成 minmax(50px, 1fr) 這邊代表最小為 50px 當右邊的寬度小於 50px 時則會使用 1fr 的形式填滿該欄，當大於 50px 時第二排的格子就會往上推，就可以避免留白問題。
+但這邊又有個問題就是當不滿 50px 右邊會留白
+
+將 columns 寬度改成 minmax(50px, 1fr) 這邊代表最小為 50px 
+
+當右邊的寬度小於 50px 時則會使用 1fr 的形式填滿該欄
+
+當大於 50px 時第二排的格子就會往上推，就可以避免留白問題。
 
 這樣就可以解決 web 過寬或 phone 過窄的問題
 
@@ -643,9 +656,15 @@ justify-self, align-self >> 下在子層
 接下來看一些 grid 應用吧
 
 
-資料來源
+其他資料
 
-[CSS Grid | 剛學會怎麼用 Grid，那就來畫個 TV 檢驗圖練練手吧！](https://medium.com/%E6%89%8B%E5%AF%AB%E7%AD%86%E8%A8%98/using-css-grid-to-draw-test-card-7ed24d3559ab)
+[CSS Grid | 剛學會怎麼用 Grid，那就來畫個 TV 檢驗圖練練手吧！]
 
-[畫個飛利浦 PM5544 檢驗圖](https://codepen.io/Airwavess/pen/QWjLQJZ)
+[畫個飛利浦 PM5544 檢驗圖]
 
+
+[CSS Grid Course]: https://www.youtube.com/watch?v=t6CBKf8K_Ac&t=2185s
+
+[CSS Grid | 剛學會怎麼用 Grid，那就來畫個 TV 檢驗圖練練手吧！]: https://medium.com/%E6%89%8B%E5%AF%AB%E7%AD%86%E8%A8%98/using-css-grid-to-draw-test-card-7ed24d3559ab
+
+[畫個飛利浦 PM5544 檢驗圖]: https://codepen.io/Airwavess/pen/QWjLQJZ

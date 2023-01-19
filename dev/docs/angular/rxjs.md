@@ -1,42 +1,37 @@
 # RxJS
 
-教學影片
+### 教學影片
 
-- [RxJS 6 新手入門](https://www.youtube.com/watch?v=BA1vSZwzkK8)
-- [一小時帶你掌握 RxJS 關鍵知識](https://www.youtube.com/watch?v=uEL0Fl-uWpc)
++ [RxJS 6 新手入門]
++ [一小時帶你掌握 RxJS 關鍵知識]
 
-### RxJS 是什麼
+## RxJS 是什麼
 
-RxJS 是一套藉由 Observable sequences 來組合非同步行為和事件基礎程序的 Library！
+RxJS 是一套藉由 Observable sequences 來組合非同步行為和事件基礎程序的 Library，Rxjs 可以處理複雜的非同步問題
 
-### RxJS 重要的五個基本東西
+## RxJS 重要的五個基本東西
 
-• Observable 可觀察的物件 – 代表一個觀察者，他可以去幫助我們持續監聽某一個事件或是做一件事情
+| 名稱 | 解釋 |
+|:--|:-- |
+| Observable 可觀察的物件 | 代表一個觀察者，他可以去幫助我們持續監聽某一個事件或是做一件事情 |
+| Observer 觀察者物件 | 代表一個接收觀察者情報的人，他可以得到觀察者所觀察的內容。其中有 next,error,complete 三個參數來幫助你在監聽到事件的時候可以做的事情 |
+| Subscription 訂閱物件 | 代表發布命令請觀察者開始監聽 |
+| Operators 運算子 | 在 RxJS 當中，有一百多個 Operators 可以使用，其中像是 filter 他可以幫我們去過濾資料 |
+| Subject 主體物件 | 主要用來廣播收到的事件資料給多個 Observer (觀察者) 讓我們不需要一直執行 Subscribe |
 
-• Observer 觀察者物件 – 代表一個接收觀察者情報的人，他可以得到觀察者所觀察的內容。其中有 next,error,complete 三個參數來幫助你在監聽到事件的時候可以做的事情
+[參考資料]
 
-• Subscription 訂閱物件 – 代表發布命令請觀察者開始監聽
+## RxJS 的運算子(operators)
 
-• Operators 運算子 – 在 RxJS 當中，有一百多個 Operators 可以使用，其中像是 filter 他可以幫我們去過濾資料
+[在 Angular 中應用 RxJS 的 operators (1) - 基礎篇]
 
-• Subject 主體物件 – 主要用來廣播收到的事件資料給多個 Observer (觀察者) 讓我們不需要一直執行 Subscribe
-
-[參考資料](https://dotblogs.com.tw/leo_codespace/2017/05/12/133807)
-
-### 解決的問題
-
-處理複雜的非同步問題
-
-### RxJS 的運算子(operators)
-
-[在 Angular 中應用 RxJS 的 operators (1) - 基礎篇](https://fullstackladder.dev/blog/2018/11/13/mastering-angular-29-angular-with-rxjs-basic/)
-
-[在 Angular 中應用 RxJS 的 operators (2) - 進階應用](https://fullstackladder.dev/blog/2018/11/14/mastering-angular-30-angular-with-rxjs-advanced/)
+[在 Angular 中應用 RxJS 的 operators (2) - 進階應用]
 
 
-#### map
+### map
 
 RxJS 則是將一個訂閱可以得到的資料轉換成另外一筆資料
+
 ```ts
 // #1
 // 只拿 res 回來的 res.title
@@ -51,8 +46,7 @@ menuItems$ = this.httpClient.get('...').pipe(
 );
 ```
 
-
-#### tap
+### tap
 
 不會影響整個 RxJS 資料流方向，某種程度的意思是「什麼都不影響」，加入 console.log 進行除錯
 
@@ -80,7 +74,7 @@ buttonClick() {
 }
 ```
 
-#### switchMap
+### switchMap
 
 處理巢狀 subscribe 事件，比如你需要打 api 拿到資料後再用該資料去打 api 拿資料(api 有順序)
 
@@ -117,7 +111,7 @@ this.postData$ = this.route.params.pipe(
 )
 ```
 
-#### debounceTime
+### debounceTime
 
 面對搜尋的需求，我們常常會遇到需要在輸入完後自動搜尋資料，而不用再去按個按鈕，這時候我們可以使用 FormControl 或 ngModel 的 valueChanges 搭配 switchMap 來完成搜尋
 
@@ -136,7 +130,7 @@ data$ = this.searchControl.valueChanges.pipe(
 );
 ```
 
-#### distinctUntilChanged
+### distinctUntilChanged
 
 在使用 debounceTime 後，已經可以大幅度減少伺服器的負荷，還有沒有進步空間呢？有的，假設當 decounceTime 過去後，不管資料是不是跟上次不同，還是會將資料送到下一個 operator 去，如此一來就有可能出現重複的關鍵字搜尋的狀況，這時候透過 distinctUntilChanged 就能在上一次資料與這次資料相同時，主動忽略變更，就能更真正資料有變更時，才觸發搜尋的動作：
 
@@ -148,7 +142,7 @@ data$ = this.searchControl.valueChanges.pipe(
 );
 ```
 
-#### filter
+### filter
 
 在搜尋的例子最後介紹一個簡單常用的 operator - filter ，這個 operator 跟陣列的 filter 非常類似，就是用來過濾資料用的，當 filter 內的條件符合時，才允許這次變更發生，因此若希望輸入超過 3 個字才允許搜尋的話，可以改為：
 
@@ -160,3 +154,9 @@ data$ = this.searchControl.valueChanges.pipe(
   switchMap(keyword => this.httpClient.get(`.../?q=${keyword}`))
 );
 ```
+
+[RxJS 6 新手入門]: https://www.youtube.com/watch?v=BA1vSZwzkK8
+[一小時帶你掌握 RxJS 關鍵知識]: https://www.youtube.com/watch?v=uEL0Fl-uWpc
+[參考資料]: https://dotblogs.com.tw/leo_codespace/2017/05/12/133807
+[在 Angular 中應用 RxJS 的 operators (1) - 基礎篇]: https://fullstackladder.dev/blog/2018/11/13/mastering-angular-29-angular-with-rxjs-basic/
+[在 Angular 中應用 RxJS 的 operators (2) - 進階應用]: https://fullstackladder.dev/blog/2018/11/14/mastering-angular-30-angular-with-rxjs-advanced/

@@ -1,9 +1,9 @@
 # Pipe 管線元件
 
-- UppercasePipe
-- LowercasePipe
-- DecimalPipe
-- CurrencyPipe
++ UppercasePipe
++ LowercasePipe
++ DecimalPipe
++ CurrencyPipe
 
 ## UppercasePipe & LowercasePipe
 
@@ -23,7 +23,7 @@
 {{ value_expression | number [ : digitsInfo [ : locale ] ] }}
 ```
 
-digitsInfo
+`digitsInfo`
 
 ```html
 {minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}
@@ -31,14 +31,14 @@ digitsInfo
 
 digitsInfo 預設值
 
-> 'minIntegerDigits': The minimum number of integer digits before the decimal point. Default is 1.
-> 最小整數單位為 1
++ 'minIntegerDigits': The minimum number of integer digits before the decimal point. Default is 1.
++ 最小整數單位為 1
 
-> 'minFractionDigits': The minimum number of digits after the decimal point. Default is 0.
-> 最小小數單位為 0
++ 'minFractionDigits': The minimum number of digits after the decimal point. Default is 0.
++ 最小小數單位為 0
 
-> 'maxFractionDigits': The maximum number of digits after the decimal point. Default is 3.
-> 最大小數單位為 3
++ 'maxFractionDigits': The maximum number of digits after the decimal point. Default is 3.
++ 最大小數單位為 3
 
 locale 預設值為 undefined
 
@@ -105,7 +105,7 @@ export class AppComponent {
 <!-- 00 003,14159 -->
 ```
 
-若想輸入台灣的格式 ? >> ask jane QQ
+若想輸入台灣的格式 'zh-TW'
 
 ## CurrencyPipe
 
@@ -116,17 +116,19 @@ export class AppComponent {
 locale ] ] ] ] }}
 ```
 
-<b>currencyCode</b>: The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, such as USD for the US dollar and EUR for the euro. The default currency code can be configured using the DEFAULT_CURRENCY_CODE injection token.
-<b>display</b>:
+### currencyCode: 
+The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, such as USD for the US dollar and EUR for the euro. The default currency code can be configured using the DEFAULT_CURRENCY_CODE injection token.
+### display:
 code: Show the code (such as USD).
 
 symbol(default): Show the symbol (such as $).
 
 symbol-narrow: Use the narrow symbol for locales that have two symbols for their currency. For example, the Canadian dollar CAD has the symbol CA$ and the symbol-narrow $. If the locale has no narrow symbol, uses the standard symbol for the locale.
 
-<b>digitsInfo, locale</b> 跟上面的 pipe 一樣
+### digitsInfo, locale
+ 上面的 pipe 一樣
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class CurrencyPipeComponent {
@@ -135,7 +137,7 @@ export class CurrencyPipeComponent {
 }
 ```
 
-app.component.html
+`app.component.html`
 
 ```html
 <!--output '$0.26'-->
@@ -166,9 +168,10 @@ app.component.html
 {{ value_expression | percent [ : digitsInfo [ : locale ] ] }}
 ```
 
-<b>digitsInfo, locale</b> 跟上面的 pipe 一樣
+### digitsInfo, locale
+跟上面的 pipe 一樣
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class PercentPipeComponent {
@@ -177,7 +180,7 @@ export class PercentPipeComponent {
 }
 ```
 
-app.component.html
+`app.component.html`
 
 ```html
 <!--output '26%'-->
@@ -192,21 +195,26 @@ app.component.html
 
 ## DatePipe
 
+[DatePipe]
+
 ```html
 {{ value_expression | date [ : format [ : timezone [ : locale ] ] ] }}
 ```
 
-<b>value_expression</b>:輸入日期格式、1970 到現在的毫秒數或 ISO string
+### value_expression
+輸入日期格式、1970 到現在的毫秒數或 ISO string
 
-<b>format</b>: 可以輸入內建格式 'short', 'medium', 'long', 'full'...
+### format
 
-[DatePipe](https://angular.io/api/common/DatePipe)
+可以輸入內建格式 'short', 'medium', 'long', 'full'... 
 
-<b>timezone</b>: Default 為瀏覽器內建的 local 時區，'+0430' 的話則是在格林威治標準時間 +0430
+### timezone
+Default 為瀏覽器內建的 local 時區，'+0430' 的話則是在格林威治標準時間 +0430
 
-<b>locale</b> 跟上面的 pipe 一樣
+### locale:
+跟上面的 pipe 一樣
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 export class DatePipeComponent {
@@ -214,7 +222,7 @@ export class DatePipeComponent {
 }
 ```
 
-app.component.html
+`app.component.html`
 
 ```html
 <!-- Apr 25, 2022 -->
@@ -228,10 +236,10 @@ app.component.html
 在日期資料裡面轉換格式
 
 ```html
-<span class="post-date"
-  ><i class="glyphicon glyphicon-calendar"></i>{{ item.date | date:'yyyy-MM-dd'
-  }}</span
->
+<span class="post-date">
+  <i class="glyphicon glyphicon-calendar"></i>
+  {{ item.date | date:'yyyy-MM-dd'}}
+</span>
 ```
 
 ## JsonPipe
@@ -250,7 +258,7 @@ app.component.html
 {{ value_expression | slice : start [ : end ] }}
 ```
 
-app.component.html
+`app.component.html`
 
 ```html
 <!-- 先把 item.title 轉小寫後在取 0-20 個字 -->
@@ -259,7 +267,7 @@ app.component.html
 <a [href]="item.href">{{ item.title | lowercase | slice:-20 }}</a>
 ```
 
-ngFor 也可以使用 slicepipe
+ngFor 也可以使用 SlicePipe
 
 ```html
 <!-- 取 ngFor 1-3 筆資料 -->
@@ -269,3 +277,5 @@ ngFor 也可以使用 slicepipe
   *ngFor="let item of data | slice:0:2;let idx = index"
 ></article>
 ```
+
+[DatePipe]: https://angular.io/api/common/DatePipe

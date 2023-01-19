@@ -15,7 +15,7 @@ import * as jsonFile from '../../../../assets/json/insurance-content.json';
 
 在 tsconfig.json 加入compilerOptions 下加入 resolveJsonModule 設定 
 
-tsconfig.json
+`tsconfig.json`
 ```json
 {
   "compilerOptions": {

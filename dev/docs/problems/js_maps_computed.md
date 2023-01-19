@@ -64,11 +64,11 @@ this.orders = data.result.reverse().map((order) => {
 1. 使用 computed
 2. 使用 map() + reduce()
 
-### 使用 computed
+## 使用 computed
 
 若使用 computed 代表當更改 quantity 數量則會重新運算
 
-### 使用 map() + reduce()
+## 使用 map() + reduce()
 
 使用 使用 map() + reduce() 代表我剛從後端拿到資料的時候就加以運算，且 quantity 不會改變時使用
 
@@ -76,7 +76,7 @@ this.orders = data.result.reverse().map((order) => {
 雖然知道 map(), reduce() 這兩個方法拿來做什麼，但不常使用導致觀念模糊
 所以後面用簡單的範例來實作一下
 
-#### 先將資料結構簡單化，只需要價格與數量個兩個變數就好
+    先將資料結構簡單化，只需要價格與數量個兩個變數就好
 
 然後打開 chrome F12 console 面板來測試
 

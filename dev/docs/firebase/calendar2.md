@@ -1,16 +1,6 @@
 # 萬年曆 Calendar Part2
 
-使用的架構為 Vue + Vuetify + Firebase storage
-
-版本別如下：
-| 名稱 | 版本 |
-| ---- | ---- |
-| Vue | 2.6.11 |
-| Vuetify | 2.6.0 |
-| Firebase | 9.6.10 |
-| firestore | 1.1.6 |
-
-### 建立 VueCLI
+## 建立 VueCLI
 
 如果還沒全域安裝 VueCLI 可在終端機輸入
 

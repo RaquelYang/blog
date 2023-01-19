@@ -1,7 +1,7 @@
 # Typescript
 
 教學連結
-[TypeScript TS 快速入門｜Tiktok工程師帶你入門前端｜布魯斯前端](https://www.youtube.com/watch?v=GinkGJZBHIY&t=6887s)
+[TypeScript TS 快速入門｜Tiktok工程師帶你入門前端｜布魯斯前端]
 
 ## 基本類型
 
@@ -67,9 +67,6 @@ console.log(status) // 0
 let aaa: number | string;
 aaa = 123;
 aaa = 'aaa';
-
-
-
 ```
 ## type
 ```ts
@@ -144,14 +141,14 @@ function hello1 (a: string, b: string): number {
   return 999
 }
 
-function hello2 (a: number, b: boolean, c:string): number {
+function hello2 (a: number, b: boolean, c: string): number {
   console.log(a, b, c)
   return 100
 }
 
 // undefined
 // 可選參數需放在最後一個(c?: sting)
-function hello3 (a: number, b: boolean, c?:string): number {
+function hello3 (a: number, b: boolean, c?: string): number {
   let age: string;
   if (c === undefined) return -1 // 解法：直接在這邊下判斷
   age = c; // c 可能為 string | undefined 則會報錯
@@ -309,8 +306,11 @@ console.log('p', p)
 console.log('p1', p1)
 
 ```
-[typescript utility](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+[typescript utility]
+
 裡面有很多工具可以使用
+
+## utility
 ```ts
 // ---- utility ----
 // Record
@@ -366,3 +366,7 @@ const todo: TodoPreview = {
   createdAt: 1615544252770,
 };
 ```
+
+[TypeScript TS 快速入門｜Tiktok工程師帶你入門前端｜布魯斯前端]: https://www.youtube.com/watch?v=GinkGJZBHIY&t=6887s
+
+[typescript utility]: https://www.typescriptlang.org/docs/handbook/utility-types.html

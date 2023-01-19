@@ -1,8 +1,8 @@
 # Angular 2 表單處理與驗證
 
-[影片 link](Angular 2 表單處理與驗證)
+[影片 link]
 
-### 什麼是 Angular Forms
+## 什麼是 Angular Forms
 
 - 基本用途
   - 表單資料進行序列化
@@ -14,7 +14,7 @@
   - 自訂驗證器(Validators)
   - 動態建立控制項
 
-### Template-driven 介紹
+## Template-driven 介紹
 
 input(view - ControlValueAccessor) 加入 attr ngModel 時可以建立 Model 實體(FormControl)
 
@@ -36,12 +36,12 @@ Model 實體
 
 表單包含：city, state, street, zip 這四個控制項(可逐一驗證)，這四個控制項可以變成一個 formGroup，formGroup 包含單一 FormControl Model 也提供一些方法可以讓我們存取或是修改的動作，formGroup 的好處就是當 formGroup 內如果有任一的 FormControl invalid 那 formGroup 也會 invalid
 
-### Model-driven 介紹
+## Model-driven 介紹
 
-### Demo - Template-driven
+## Demo - Template-driven
 
 12:00 開始
-[demo](https://stackblitz.com/edit/angular-ivy-24muef?file=src%2Fapp%2Ftemplatdriven%2Ftemplatdriven.component.html)
+[demo]
 
 TemplatdrivenComponent 在此 component 進行實作
 
@@ -72,4 +72,7 @@ ngForm 是 Angular 提供的一個
 </div>
 ```
 
-### Demo - Model-driven
+## Demo - Model-driven
+
+[影片 link]: https://www.youtube.com/watch?v=XQ4aCmtjOBM&t=4753s
+[demo]: https://stackblitz.com/edit/angular-ivy-24muef?file=src%2Fapp%2Ftemplatdriven%2Ftemplatdriven.component.html

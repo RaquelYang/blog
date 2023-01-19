@@ -1,6 +1,12 @@
 # Vue3 + Vite + Tailwind
 
-之前有聽老師稍微介紹 vite，現在來玩一下 vite(其實是要玩 tailwind，但 vue3 直接安裝但 vue add tailwind 有點問題，打不開 tailwind 啊！！！只好上網找可以使用的方式了，官方網站是用 vite + vue3 + tailwind 廢話不多說，來 trytry)
+之前有聽老師稍微介紹 vite，現在來玩一下 vite
+
+其實是要玩 tailwind，但 vue3 直接安裝但 vue add tailwind 有點問題，打不開
+
+tailwind 啊！！！只好上網找可以使用的方式了
+
+官方網站是用 vite + vue3 + tailwind 廢話不多說，來 trytry
 
 ## 安裝
 

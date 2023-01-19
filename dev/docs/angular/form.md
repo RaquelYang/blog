@@ -1,10 +1,14 @@
-# Form 表單
+# template form 表單
 
-這次使用 stackblitz 來建立這次範例的 demo [link](https://www.youtube.com/watch?v=n9OuCW9Nrfw&t=2197s)
+## Template Driven From
+
+這次使用 stackblitz 來建立這次範例的 [demo]
 
 首先先引入 bootstrap
 
-在左側 DEPENDENCIES enter package name 收尋 bootstrap 安裝後會拰要不要加裝套件，直接 enter 就好了，再將 bootstrap 的樣式表引入 style.css
+在左側 dependencies enter package name 收尋 bootstrap 安裝後會問要不要加裝套件
+
+直接 enter 就好了，再將 bootstrap 的樣式表引入 style.css
 
 ```css
 @import "~bootstrap/dist/css/bootstrap.min.css";
@@ -12,7 +16,7 @@
 
 引入完後測試一下有沒有成功，打入 button 後看有沒有吃到樣式，有吃到樣式就可以開始囉
 
-直接在 app.component.html
+`app.component.html`
 
 ```html
 <button class="btn btn-secondary">Publish Article</button>
@@ -20,11 +24,9 @@
 
 先建立一個 component 引入到 app.module.ts 並引入到模板中
 
-建立一個 form 表單，我直接拿 bootstrap 範例預設的表單來改
+建立一個 form 表單，我直接拿 bootstrap 範例預設的表單來改 [表單內容]
 
-表單內容請看 [link](https://stackblitz.com/edit/angular-ivy-24muef?file=src%2Fapp%2Feditor%2Feditor.component.html)
-
-確認有 imports FormsModule
+確認在 `app.model.ts` 有 imports `FormsModule`
 
 ```ts
 import { FormsModule } from '@angular/forms';
@@ -33,25 +35,27 @@ import { FormsModule } from '@angular/forms';
 })
 ```
 
-在 app 裡面多一個 article.model.ts 裡面定義 Article,Author,ArticleResponse ，可以查看 [link](https://stackblitz.com/edit/angular-ivy-24muef?file=src%2Fapp%2Feditor%2Feditor.component.html)
+在 app 裡建立 article.model.ts 裡面定義 Article, Author, ArticleResponse ，可以查看 [Article]
 
-editor.component.ts 在 class 裡自定義 title, description, body 的變數
+定義 title, description, body 變數
+
+`editor.component.ts` 
 
 ```ts
 import { ArticleResponse, Article, Author } from "../article.model";
+
 export class EditorComponent implements OnInit {
   title: string;
   description: string;
   body: string;
+
   constructor() {}
 
   ngOnInit() {}
 }
 ```
 
-## Template Driven From
-
-接下來可以把 input 雙向綁定資料
+input 使用 ngModel 綁定 title 資料
 
 ```html
 <div class="mb-3 col-6">
@@ -67,14 +71,14 @@ export class EditorComponent implements OnInit {
 ...
 ```
 
-接下來會報錯
-
 ```sh
 # Error 為如果 ngModel 在 form tag 裡面的話，必須給 name
-Error: If ngModel is used within a form tag, either the name attribute must be set or the form control must be defined as 'standalone' in ngModelOptions.
+
+Error: If ngModel is used within a form tag, either the name attribute must 
+be set or the form control must be defined as 'standalone' in ngModelOptions.
 ```
 
-所以 input 改成以下程式碼，加個 name 就不會報錯
+所以 input 改成以下程式碼，加個 `name="title"`
 
 ```html
 <div class="mb-3 col-6">
@@ -91,8 +95,9 @@ Error: If ngModel is used within a form tag, either the name attribute must be s
 ...
 ```
 
-如何取得所有表單內容，使用樣板變數來獲得表單內容
-在 form 中加入樣板變數，再到其他的地方顯示是否有雙向綁定
+使用樣板變數來獲得表單內所有內容
+
+在 form 中加入樣板變數
 
 ngForm 會建立出一個 FormGroup 裡面會包含一些東西
 
@@ -101,13 +106,13 @@ ngForm 會建立出一個 FormGroup 裡面會包含一些東西
 <form #f="ngForm">...</form>
 ```
 
-這邊得到的值是跟 input 裡面的 name 來獲得的，跟 ngModel 所綁定的名稱無關係
+這邊得到的值是 input 裡面的 name 跟 ngModel 所綁定的名稱無關係
 
-這樣可以再改寫 input 成以下程式碼，把原本的 ngModel 改寫一下
+這樣可以再改寫 input 成以下程式碼，把原本的 ngModel 改寫
 
 ngModel 代表的是 FormControl
 
-ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
+    ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
 
 ```html
 ...
@@ -125,7 +130,7 @@ ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
 ...
 ```
 
-如果要放預設值，需改成 <pre>[(ngModel)]</pre> 
+如果要放預設值，需改成 `[(ngModel)]` 
 
 ```html
 <div class="mb-3 col-6">
@@ -145,12 +150,17 @@ ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
 title = "lorem@scd.com";
 ```
 
-```html
-假如目前的需求是某個表單需要驗證還能填寫，這樣需改寫 input。
-input 多一個 #t="ngModel"， ngModel 會回傳 Formcontrol 的東西，下面的 required 為 !!t.value，然後再將 t.valid 列印出來
+假如目前的需求是某個表單需要驗證還能填寫，這樣需改寫 input
 
-以下寫法代表假如說第一個 input 有值，那第二個 input 為必填；如果第一個 input 沒有值，第二的 input 為非必填
-```
+input 加上 #t="ngModel"， ngModel 會回傳 
+
+FormControl 的東西，下面的 required 為 !!t.value
+
+再將 t.valid 列印出來
+
+以下寫法代表假如說第一個 input 有值，那第二個 input 為必填；
+
+如果第一個 input 沒有值，第二的 input 為非必填
 
 ```html
 {{ f.valid }}
@@ -188,12 +198,17 @@ input 多一個 #t="ngModel"， ngModel 會回傳 Formcontrol 的東西，下面
 </button>
 ```
 
-## Model driven form (ReactForm)
+    Template driven form 可以了解原理，但在專案上盡量不要使用
 
-概念為把 FromControl 先在 class 裡面定義好，定義完之後在 template 裡面 implement 對應的 FromControl 是哪一個
+## Model driven form
+
+概念為把 FromControl 先在 class 裡面定義好
+
+定義完之後在 template 裡面實作出對應的 FromControl
 
 首先需 import ReactiveFormsModule
-app.module.ts
+
+`app.module.ts`
 
 ```ts
 import { NgModule } from "@angular/core";
@@ -211,7 +226,7 @@ import { EditorComponent } from "./editor/editor.component";
 export class AppModule {}
 ```
 
-把 editor.component.ts 原本的資料結構改寫成 FormGroup 與 FormControl
+把 `editor.component.ts` 原本的資料結構改寫成 FormGroup 與 FormControl
 
 ```ts
 import { Component, OnInit } from "@angular/core";
@@ -234,20 +249,20 @@ export class EditorComponent implements OnInit {
 }
 ```
 
-editor.component.html
-
 把原本的 form 使用 template driven 改成使用 form > formGroup 並綁定 formData
 
-原本的 name 改成 formControlName 這樣就會從 formGroup 裡面抓它的屬性
+原本的 name 改成 formControlName 這樣就會從 formGroup 裡拿到它的屬性
 
-
-```html
-取值的方式使用 {{ formData.value | json}}，一開始會給 null (因為沒給預設值)而非空值
+取值的方式使用
+```
+{{ formData.value | json }}
 ```
 
+一開始會給 null (因為沒給預設值) 而非空值
 
 若要給預設值直接在 new FormControl('abc') 即可
 
+`editor.component.html`
 ```html
 {{ formData.value | json}}
 <form [formGroup]="formData">
@@ -328,6 +343,7 @@ export class EditorComponent implements OnInit {
     //   field: new FormControl(''),
     // }),
   });
+
   constructor() {}
 
   ngOnInit(): void {
@@ -344,7 +360,9 @@ export class EditorComponent implements OnInit {
 }
 ```
 
-接下來我們要監聽當 title 屬性改變的時候進行操作，在 valueChanges 時我們訂閱這個值，並先 console 初回傳的值，回傳的值為修改後的值，當我們有這個東西後可以在這邊做一些判斷
+接下來我們要監聽當 title 屬性改變的時使用 valueChanges 並且訂閱它
+
+會 console 出修改後的值
 
 ```ts
 ngOnInit(): void {
@@ -431,7 +449,7 @@ export class EditorComponent implements OnInit {
 
 首先先新增 tag, tags 儲存資料的變數
 
-editor.component.ts
+`editor.component.ts`
 
 ```ts
 formData = new FormGroup({
@@ -447,12 +465,12 @@ formData = new FormGroup({
 tags = [];
 ```
 
-方式一
+### `方式一`
 
 下面有個 ul > li 來跑 tag 的迴圈
 然後在 input 那邊加入 keyup.enter 觸發 addtag 方法
 
-editor.component.html
+`editor.component.html`
 
 ```html
 <div class="mb-3 col-6">
@@ -471,7 +489,7 @@ editor.component.html
 </div>
 ```
 
-editor.component.ts
+`editor.component.ts`
 
 ```ts
 addtag() {
@@ -485,7 +503,7 @@ addtag() {
 
 這樣就能新增輸入的 tag 在下方
 
-: 使用 formArray 改寫
+使用 formArray 改寫
 
 ```ts
 formData = new FormGroup({
@@ -546,7 +564,7 @@ addtag() {
 
 36:00 button remove 那邊有 bug QQ，影片好像也有 bug 的樣子
 
-part2 [link](https://www.youtube.com/watch?v=eCedsPG_rxo&t=13s)
+[part2]
 
 因為 tagList formControl 有點複雜，把它用一個 component 去接
 
@@ -614,7 +632,7 @@ export class TagSelectComponent implements OnInit, ControlValueAccessor {
 ControlValueAccessor 裡面 Angular 提供了四個方法
 
 ```ts
-onTouched;
+// onTouched;
 
 // ControlValueAccessor
 // Input
@@ -642,3 +660,8 @@ setDisabledState() {}
 ```
 
 停在 part2 10:00 左右
+
+[demo]: https://www.youtube.com/watch?v=n9OuCW9Nrfw&t=2197s
+[表單內容]: https://stackblitz.com/edit/angular-ivy-24muef?file=src%2Fapp%2Feditor%2Feditor.component.html
+[Article]: https://stackblitz.com/edit/angular-ivy-24muef?file=src%2Fapp%2Feditor%2Feditor.component.html
+[part2]: https://www.youtube.com/watch?v=eCedsPG_rxo&t=13s

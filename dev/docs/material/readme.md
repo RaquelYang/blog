@@ -1,10 +1,12 @@
-# Dialog
+# Angular material
+
+## Dialog
 
 以 app.component.ts 與 dialog.component.ts(dialog) 為例
 
 新增 material dialog
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 // 匯入 dialog
@@ -56,7 +58,7 @@ export class RecommendAdviseDialogComponent implements OnInit {
 }
 ```
 
-app.component.ts
+`app.component.ts`
 
 ```ts
 // 匯入 dialog
