@@ -1,3 +1,4 @@
+
 module.exports = {
   title: "Raquel Blog",
   description: "coding blog",
@@ -17,6 +18,18 @@ module.exports = {
     ],
     sidebar: [
       ["/", "首頁"],
+      {
+        title: "Vue 技術筆記",
+        path: "/vue/",
+        children: [
+          "/vue/",
+          {
+            title: "Vue child",
+            path: "/vue2/",
+            children: ["/vue/vue2/"]
+          }
+        ]
+      },
       {
         title: "webpack4 環境建置",
         path: "/webpack4_environment_setup/",
@@ -152,6 +165,15 @@ module.exports = {
       {
         serviceWorker: true,
         updatePopup: true
+      }
+    ],
+    ['vuepress-plugin-typescript', {
+        tsLoaderOptions: {
+          transpileOnly: true,
+          compilerOptions: {
+            'target': 'ES2019',
+          },
+        }
       }
     ]
   ]
