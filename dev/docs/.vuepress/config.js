@@ -24,114 +24,130 @@ module.exports = {
         children: [
           "/vue/",
           {
-            title: "Vue child",
-            path: "/vue2/",
-            children: ["/vue/vue2/"]
-          }
+            title: "Vue2 筆記",
+            path: "/vue/vue2/",
+            children: [
+              "/vue/vue2/",
+              "/vue/vue2/dataflow.md",
+              "/vue/vue2/lifecycle.md",
+              "/vue/vue2/nuxt.md",
+              "/vue/vue2/vuex.md",
+              "/vue/vue2/depoly.md",
+            ],
+          },
+          {
+            title: "Vue3 筆記",
+            path: "/vue/vue3/",
+            children: ["/vue/vue3/", "/vue/vue3/vite.md"],
+          },
+          {
+            title: "Firebase 筆記",
+            path: "/vue/firebase/",
+            children: ["/vue/firebase/",
+              "/vue/firebase/calendar1.md",
+              "/vue/firebase/calendar2.md",
+              "/vue/firebase/calendar3.md",
+              "/vue/firebase/calendar4.md",
+            ],
+          },
         ]
       },
       {
-        title: "webpack4 環境建置",
-        path: "/webpack4_environment_setup/",
-        children: [
-          "/webpack4_environment_setup/",
-          "/webpack4_environment_setup/webpack-part2",
-          "/webpack4_environment_setup/webpack-part3",
-          "/webpack4_environment_setup/webpack-part4",
-          "/webpack4_environment_setup/webpack-part5",
-          "/webpack4_environment_setup/webpack-part6",
-          "/webpack4_environment_setup/webpack-part7",
-          "/webpack4_environment_setup/webpack-part8",
-          "/webpack4_environment_setup/webpack-part9",
-        ],
-      },
-      {
-        title: "Angular Pollex",
-        path: "/angular_pollex/",
-        children: [
-          "/angular_pollex/",
-          "/angular_pollex/week1",
-          "/angular_pollex/week2",
-          "/angular_pollex/week3",
-          "/angular_pollex/week4",
-        ],
-      },
-      {
-        title: "Angular Project",
-        path: "/angular_project/",
-        children: [
-          "/angular_project/",
-          "/angular_project/formQuestions.md",
-        ],
-      },
-      {
-        title: "Angular 筆記",
+        title: "Angular 技術筆記",
         path: "/angular/",
         children: [
-          "/angular/",
-          "/angular/pipe.md",
-          "/angular/rxjs.md",
-          "/angular/directives.md",
-          "/angular/databinding.md",
-          "/angular/form.md",
-          "/angular/form2.md",
-          "/angular/nameCalled.md",
-          "/angular/reactForm.md",
-          "/angular/deploy.md",
-        ],
+          "/angular/angular/",
+          {
+            title: "Angular 筆記",
+            path: "/angular/angular/",
+            children: [
+              "/angular/angular/",
+              "/angular/angular/pipe.md",
+              "/angular/angular/rxjs.md",
+              "/angular/angular/directives.md",
+              "/angular/angular/databinding.md",
+              "/angular/angular/form.md",
+              "/angular/angular/form2.md",
+              "/angular/angular/nameCalled.md",
+              "/angular/angular/reactForm.md",
+              "/angular/angular/deploy.md",
+            ],
+          },
+          {
+            title: "Material 筆記",
+            path: "/angular/material/",
+            children: [
+              "/angular/material/",
+            ],
+          },
+          {
+            title: "Angular Pollex",
+            path: "/angular/angular_pollex/",
+            children: [
+              "/angular/angular_pollex/",
+              "/angular/angular_pollex/week1",
+              "/angular/angular_pollex/week2",
+              "/angular/angular_pollex/week3",
+              "/angular/angular_pollex/week4",
+            ],
+          },
+          {
+            title: "Angular Project",
+            path: "/angular/angular_project/",
+            children: [
+              "/angular/angular_project/",
+              "/angular/angular_project/formQuestions.md",
+            ],
+          },
+        ]
       },
       {
-        title: "疑難雜症",
-        path: "/problems/",
+        title: "其他筆記",
+        path: "/others/",
         children: [
-          "/problems/",
-          "/problems/js_maps_computed.md",
-          "/problems/concept.md",
-          "/problems/filter.md",
-          "/problems/duplicate.md",
-        ],
+          "/others/",
+          {
+            title: "webpack4 環境建置",
+            path: "/others/webpack4_environment_setup/",
+            children: [
+              "/others/webpack4_environment_setup/",
+              "/others/webpack4_environment_setup/webpack-part2",
+              "/others/webpack4_environment_setup/webpack-part3",
+              "/others/webpack4_environment_setup/webpack-part4",
+              "/others/webpack4_environment_setup/webpack-part5",
+              "/others/webpack4_environment_setup/webpack-part6",
+              "/others/webpack4_environment_setup/webpack-part7",
+              "/others/webpack4_environment_setup/webpack-part8",
+              "/others/webpack4_environment_setup/webpack-part9",
+            ],
+          },
+          {
+            title: "Vuepress 筆記",
+            path: "/others/vuepress_note/",
+            children: ["/others/vuepress_note/"],
+          },
+          {
+            title: "PWA 筆記",
+            path: "/others/pwa/",
+            children: ["/others/pwa/", "/others/pwa/depoly.md"],
+          },
+          {
+            title: "疑難雜症",
+            path: "/others/problems/",
+            children: [
+              "/others/problems/",
+              "/others/problems/js_maps_computed.md",
+              "/others/problems/concept.md",
+              "/others/problems/filter.md",
+              "/others/problems/duplicate.md",
+            ],
+          },
+        ]
       },
       {
-        title: "Vuepress 筆記",
-        path: "/vuepress_note/",
-        children: ["/vuepress_note/"],
-      },
-      {
-        title: "Vue2 筆記",
-        path: "/vue2/",
-        children: [
-          "/vue2/",
-          "/vue2/dataflow.md",
-          "/vue2/lifecycle.md",
-          "/vue2/nuxt.md",
-          "/vue2/vuex.md",
-          "/vue2/depoly.md",
-        ],
-      },
-      {
-        title: "Vue3 筆記",
-        path: "/vue3/",
-        children: ["/vue3/", "/vue3/vite.md"],
-      },
-      {
-        title: "PWA 筆記",
-        path: "/pwa/",
-        children: ["/pwa/", "/pwa/depoly.md"],
-      },
-      {
-        title: "AJAX 筆記",
-        path: "/ajax/",
-        children: ["/ajax/"],
-      },
-      {
-        title: "Firebase 筆記",
-        path: "/firebase/",
-        children: ["/firebase/",
-          "/firebase/calendar1.md",
-          "/firebase/calendar2.md",
-          "/firebase/calendar3.md",
-          "/firebase/calendar4.md",
-        ],
+        title: "API 筆記",
+        path: "/api/",
+        children: ["/api/"],
       },
       {
         title: "Typescript 筆記",
@@ -141,20 +157,12 @@ module.exports = {
         ],
       },
       {
-        title: "Material 筆記",
-        path: "/material/",
-        children: [
-          "/material/",
-        ],
-      },
-      {
-        title: "CSS style",
+        title: "樣式筆記",
         path: "/style/",
         children: [
           "/style/",
         ],
       },
-      
     ],
     lastUpdated: 'Last Updated', // string | boolean
   },
