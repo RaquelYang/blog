@@ -56,7 +56,6 @@ module.exports = {
         title: "Angular 技術筆記",
         path: "/angular/",
         children: [
-          "/angular/angular/",
           {
             title: "Angular 筆記",
             path: "/angular/angular/",
@@ -66,11 +65,15 @@ module.exports = {
               "/angular/angular/rxjs.md",
               "/angular/angular/directives.md",
               "/angular/angular/databinding.md",
-              "/angular/angular/form.md",
-              "/angular/angular/form2.md",
               "/angular/angular/nameCalled.md",
-              "/angular/angular/reactForm.md",
               "/angular/angular/deploy.md",
+            ],
+          },
+          {
+            title: "Angular Form 筆記",
+            path: "/angular/react_form/",
+            children: [
+              "/angular/react_form/",
             ],
           },
           {
