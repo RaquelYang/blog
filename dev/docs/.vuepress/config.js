@@ -146,8 +146,14 @@ module.exports = {
       },
       {
         title: "API 筆記",
-        path: "/api/",
-        children: ["/api/"],
+        path: "/api/rxjs",
+        children: [
+          "/api/",
+          {
+            title: "Rxjs 筆記",
+            path: "/api/rxjs/",
+          }
+          ],
       },
       {
         title: "Typescript 筆記",
