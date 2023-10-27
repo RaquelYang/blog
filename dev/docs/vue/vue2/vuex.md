@@ -14,9 +14,6 @@
 
 或是兩個組件以上用到相同資料狀態則可以使用 vuex 來管理
 
-<!-- ![Vuex 狀態](https://cdn-images-1.medium.com/max/1200/1*vmhxmp5jRp-4Rtfh3skrgQ.png) -->
-
-![vuex img](../assets/images/vuex.png)
 Actions > 處理 API
 
 Mutations > 改動 State
@@ -41,8 +38,8 @@ components 讀取 state 資料
 
 ## Component
 
-```vue
-<!--  components -->
+```js
+// components
 <script>
 computed:{
      day(){
@@ -50,7 +47,7 @@ computed:{
     }
 },
 mounted(){
-   <!--   呼叫vuex actions   -->
+    // 呼叫vuex actions
     this.$store.dispatch('getList',day)
 }
 </script>
@@ -61,14 +58,14 @@ Context 內有 commit, dispatch, getters, state
 
 ## Store
 
-```vue
+```js
 <script>
 actions:{ getList(context, day){
-<!--   呼叫mutations   -->
+// 呼叫mutations
 context.commit('setDay',day) return axios.get('/list.json').then(res=>{
 context.commit('setList',res.data) }) } }, mutations:{ setDay(state, day){
 state.day = day }, setList(state, list){ state.list = list } },
-<!-- 嚴格模式 -->
+// 嚴格模式
 stric:true
 </script>
 ```

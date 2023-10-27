@@ -22,5 +22,3 @@ Firebase 提供許多後端功能，包含：多種驗證功能、即時資料�
 - Firebase Hosting
 - 機器學習套件  
   [data from wiki](https://zh.wikipedia.org/wiki/Firebase)
-
-話不多說，直接進到實際操作

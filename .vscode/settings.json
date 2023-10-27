@@ -4,5 +4,8 @@
     "vuepress",
     "Vuetify",
     "vuex"
+  ],
+  "cSpell.ignoreWords": [
+    "Udemy"
   ]
 }

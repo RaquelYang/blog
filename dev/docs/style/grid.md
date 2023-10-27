@@ -263,13 +263,13 @@ grid-template: rows / columns;
 ```
 ### 固定 50px
 
-![Auto-Fit and MinMax](../assets/images/grid/autoFit1.png)
+![Auto-Fit and MinMax](../assets/images/grid/auto-fit1.png)
 
 ### 寬度為 1fr 會依據容器寬度伸縮
 
-![Auto-Fit and MinMax](../assets/images/grid/autoFit2.png)
+![Auto-Fit and MinMax](../assets/images/grid/auto-fit2.png)
 
-![Auto-Fit and MinMax](../assets/images/grid/autoFit3.png)
+![Auto-Fit and MinMax](../assets/images/grid/auto-fit3.png)
 
 若將 columns 6 改成 auto-fit，當第一排空間大於 50px 時第二排的 div 會補到第一排，若空間過小則會往第三排與第四排往下推
 
@@ -281,8 +281,8 @@ grid-template: rows / columns;
   grid-template-rows: repeat(2, 50px);
 }
 ```
-![Auto-Fit and MinMax](../assets/images/grid/autoFit4.png)
-![Auto-Fit and MinMax](../assets/images/grid/autoFit5.png)
+![Auto-Fit and MinMax](../assets/images/grid/auto-fit4.png)
+![Auto-Fit and MinMax](../assets/images/grid/auto-fit5.png)
 
 但這邊又有個問題就是當不滿 50px 右邊會留白
 
@@ -303,7 +303,7 @@ grid-template: rows / columns;
 }
 ```
 
-![Auto-Fit and MinMax](../assets/images/grid/autoFit6.png)
+![Auto-Fit and MinMax](../assets/images/grid/auto-fit6.png)
 
 ### implicit rows
 

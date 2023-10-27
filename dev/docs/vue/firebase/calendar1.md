@@ -28,8 +28,6 @@
 
 建立完專案後可以看到左側為 firebase 提供的功能
 
-<img src="../.vuepress/public/images/firebase.png"></img>
-
 點擊左側的 Firestore Database 在此專案建立資料庫
 
 Ｑ：
@@ -43,9 +41,8 @@
 Collect ID : calendar > 文件 ID： 自動產生； Field, Type, Value 看你的資料表需求，像這次做 calendar 我想要存在後端的資料有：名稱(預約的名稱)、details(細節)、start(開始時間)、end(結束時間)、color(顏色)
 
 先新增兩筆資料後續用來測試用，新增完畢後如下
-<img src="../.vuepress/public/images/firebase1.png"></img>
 
-回到該專案的 homepage(點擊左側的小房子)，中間有個 </ > (web) 的 icon 點擊一下
+回到該專案的 homepage(點擊左側的小房子)，中間有個 `</ >`(web) 的 icon 點擊一下
 
 Ｑ：
 

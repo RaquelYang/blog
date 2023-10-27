@@ -16,42 +16,7 @@ module.exports = {
         link: "https://github.com/RaquelYang"
       },
     ],
-    sidebar: [
-      ["/", "首頁"],
-      {
-        title: "Vue 技術筆記",
-        path: "/vue/",
-        children: [
-          "/vue/",
-          {
-            title: "Vue2 筆記",
-            path: "/vue/vue2/",
-            children: [
-              "/vue/vue2/",
-              "/vue/vue2/dataflow.md",
-              "/vue/vue2/lifecycle.md",
-              "/vue/vue2/nuxt.md",
-              "/vue/vue2/vuex.md",
-              "/vue/vue2/depoly.md",
-            ],
-          },
-          {
-            title: "Vue3 筆記",
-            path: "/vue/vue3/",
-            children: ["/vue/vue3/", "/vue/vue3/vite.md"],
-          },
-          {
-            title: "Firebase 筆記",
-            path: "/vue/firebase/",
-            children: ["/vue/firebase/",
-              "/vue/firebase/calendar1.md",
-              "/vue/firebase/calendar2.md",
-              "/vue/firebase/calendar3.md",
-              "/vue/firebase/calendar4.md",
-            ],
-          },
-        ]
-      },
+    sidebar: [     
       {
         title: "Angular 技術筆記",
         path: "/angular/",
@@ -74,6 +39,11 @@ module.exports = {
             path: "/angular/react_form/",
             children: [
               "/angular/react_form/",
+              "/angular/react_form/react_form1.md",
+              "/angular/react_form/react_form2.md",
+              "/angular/react_form/react_form3.md",
+              "/angular/react_form/react_form4.md",
+              "/angular/react_form/react_form5.md",
             ],
           },
           {
@@ -104,16 +74,40 @@ module.exports = {
           },
         ]
       },
+      // {
+      //   title: "Typescript 筆記",
+      //   path: "/typescript/",
+      //   children: [
+      //     "/typescript/",
+      //   ],
+      // },
+      {
+        title: "Style 筆記",
+        path: "/style/grid",
+        children: [
+          "/style/grid",
+        ],
+      },
+      {
+        title: "API 筆記",
+        path: "/api/rxjs",
+        children: [
+          "/api/",
+          {
+            title: "Rxjs 筆記",
+            path: "/api/rxjs/",
+          }
+          ],
+      }, 
       {
         title: "其他筆記",
-        path: "/others/",
+        path: "/others/webpack4_environment_setup/webpack-part1",
         children: [
-          "/others/",
           {
             title: "webpack4 環境建置",
-            path: "/others/webpack4_environment_setup/",
+            path: "/others/webpack4_environment_setup/webpack-part1",
             children: [
-              "/others/webpack4_environment_setup/",
+              "/others/webpack4_environment_setup/webpack-part1",
               "/others/webpack4_environment_setup/webpack-part2",
               "/others/webpack4_environment_setup/webpack-part3",
               "/others/webpack4_environment_setup/webpack-part4",
@@ -123,6 +117,11 @@ module.exports = {
               "/others/webpack4_environment_setup/webpack-part8",
               "/others/webpack4_environment_setup/webpack-part9",
             ],
+          },
+          {
+            title: "Typescript 筆記",
+            path: "/others/typescript/",
+            children: ["/others/typescript/"],
           },
           {
             title: "Vuepress 筆記",
@@ -148,29 +147,32 @@ module.exports = {
         ]
       },
       {
-        title: "API 筆記",
-        path: "/api/rxjs",
+        title: "Vue 技術筆記",
+        path: "/vue/vite",
         children: [
-          "/api/",
+          "/vue/vite",
+          "/vue/nuxt",
           {
-            title: "Rxjs 筆記",
-            path: "/api/rxjs/",
-          }
-          ],
-      },
-      {
-        title: "Typescript 筆記",
-        path: "/typescript/",
-        children: [
-          "/typescript/",
-        ],
-      },
-      {
-        title: "樣式筆記",
-        path: "/style/",
-        children: [
-          "/style/",
-        ],
+            title: "Vue2 筆記",
+            path: "/vue/vue2/dataflow",
+            children: [
+              "/vue/vue2/dataflow",
+              "/vue/vue2/lifecycle",
+              "/vue/vue2/vuex",
+              "/vue/vue2/deploy",
+            ],
+          },
+          {
+            title: "Firebase 筆記",
+            path: "/vue/firebase/",
+            children: ["/vue/firebase/",
+              "/vue/firebase/calendar1",
+              "/vue/firebase/calendar2",
+              "/vue/firebase/calendar3",
+              "/vue/firebase/calendar4",
+            ],
+          },
+        ]
       },
     ],
     lastUpdated: 'Last Updated', // string | boolean
