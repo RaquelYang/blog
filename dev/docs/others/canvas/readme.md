@@ -3,9 +3,11 @@
 ## Canvas 介紹
 
 ### 甚麼是 Canvas?
+
 Canvas 全名是 HTML5 Canvas，是一個瀏覽器提供的繪圖 API，讓工程師可以使用 JavaScript(不是 HTML) 可以繪製各種圖形。
 
 ### 他可以做到甚麼?
+
 1. 繪製圖形
 1. 建立動畫
 1. 合成圖片
@@ -52,6 +54,7 @@ body {
     margin: 0;
 }
 ```
+
 canvas.js 取得 html canvas tag
 
 ```js
@@ -63,16 +66,18 @@ const ctx = canvas.getContext('2d');
 #### Canvas 2D 與 3D 範例
 
 2D 範例
+
+- [2D - example website]
 - [2D - example1]
 - [2D - example2]
 - [2D - example3]
 
 3D 範例 (webgl, webgl2)
 
+- [3D - example website]
 - [3D - example1]
 - [3D - example2]
 - [3D - example3]
-
 
 打印 ctx 出來
 
@@ -200,6 +205,7 @@ function drawCircle() {
 ```
 
 再加入 mousemove event 就可以在畫布上畫圖了
+
 ```js
 canvas.addEventListener('mousemove', (event) => {
     mouse.x = event.x;
@@ -210,6 +216,7 @@ canvas.addEventListener('mousemove', (event) => {
 ```
 
 建立另外一種形式的動畫 -> clearRect() -> drawCircle() -> clearRect() -> drawCircle() ...
+
 ```js
 function animation() {
     // 清除整個畫布的圖案
@@ -223,6 +230,7 @@ animation();
 ```
 
 稍微調整一下程式碼 (移除監聽的 drawCircle()) 一樣可以達到畫圖的效果
+
 ```js
 const mouse = {
     x: 100,
@@ -260,6 +268,7 @@ animation();
 ### Step4 Canvas 進階動畫
 
 init js
+
 ```js
 const canvas = document.getElementById('canvas');
 canvas.width = window.innerWidth;
@@ -303,7 +312,7 @@ animation();
 
 我們現在想要建立一個circle 與 mousemove 互動的動畫
 
-先建立一個 Particle class 
+先建立一個 Particle class
 
 我想要這個 Particle 有位置, size, 移動的資訊
 
@@ -332,13 +341,15 @@ class Particle {
     }
 }
 ```
+
 Particle 有 draw() fn 後就可以把 drawCircle() 刪除
 
-新增空陣列 particleArray, 再使用 init() new Particle() 出來 
+新增空陣列 particleArray, 再使用 init() new Particle() 出來
 
 console particleArray 陣列出來會發現該陣列裡面確實有 particle class
 
 只是在 canvas 畫布上沒有顯示
+
 ```js
 const particleArray = [];
 
@@ -458,6 +469,7 @@ function handleParticle() {
 ```
 
 調整 Particle size, update() 與 handleParticle() 細節
+
 ```js
 class Particle {
     constructor() {
@@ -503,6 +515,7 @@ function handleParticle() {
 ```
 
 再來調整一下互動方式，把 init() fn 放到 監聽事件內 (mousemove, click), loop 改成 10 看一下互動效果
+
 ```js
 
 function init() {
@@ -525,6 +538,7 @@ canvas.addEventListener('mousemove', (event) => {
 ```
 
 再來調整一下細節，做出特別煙花效果
+
 ```js
 function animation() {
     // 清除整個畫布的圖案
@@ -539,6 +553,7 @@ function animation() {
 ```
 
 調整顏色
+
 ```js
 let hue = 0;
 
@@ -565,6 +580,7 @@ function animation() {
 ```
 
 class Particle 可以再調整一下
+
 ```js
 class Particle {
     constructor() {
@@ -583,6 +599,7 @@ class Particle {
 ### Step6 Canvas 進階動畫-1
 
 js init
+
 ```js
 function animation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -592,6 +609,7 @@ function animation() {
     requestAnimationFrame(animation);
 }
 ```
+
 動畫 -> 想要把兩顆球連線
 
 ```js
@@ -624,14 +642,12 @@ function handleParticle() {
 }
 ```
 
-end
-
-
 ### 參考文章與影片
-+ [Canvas 筆記 甚麼是 canvas ?]
-+ [MDN canvas API]
-+ [HTML5 Canvas Tutorial]
-+ [HTML5 Canvas CRASH COURSE for Beginners]
+
+- [Canvas 筆記 甚麼是 canvas ?]
+- [MDN canvas API]
+- [HTML5 Canvas Tutorial]
+- [HTML5 Canvas CRASH COURSE for Beginners]
 
 [Canvas 筆記 甚麼是 canvas ?]: https://powerfultraveling.coderbridge.io/2021/12/07/what-is-canvas/
 [MDN canvas API]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
@@ -645,7 +661,6 @@ end
 [2D - example3]: https://codepen.io/mimikos/pen/wKqyqY
 
 [3D - example website]: https://www.kevs3d.co.uk/dev/
-
 
 [3D - example1]: https://www.kevs3d.co.uk/dev/shaders/distancefield3.html
 [3D - example2]: https://www.kevs3d.co.uk/dev/shaders/terrain3.html
