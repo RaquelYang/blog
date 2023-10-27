@@ -34,44 +34,44 @@ module.exports = {
               "/angular/angular-beginner-note/deploy",
             ],
           },
-          {
-            title: "Angular Form 筆記",
-            path: "/angular/react-form/",
-            children: [
-              "/angular/react-form/",
-              "/angular/react-form/reactForm1",
-              "/angular/react-form/reactForm2",
-              "/angular/react-form/reactForm3",
-              "/angular/react-form/reactForm4",
-              "/angular/react-form/reactForm5",
-            ],
-          },
-          {
-            title: "Material 筆記",
-            path: "/angular/material/",
-            children: [
-              "/angular/material/",
-            ],
-          },
-          {
-            title: "Angular Pollex",
-            path: "/angular/angular-pollex/",
-            children: [
-              "/angular/angular-pollex/",
-              "/angular/angular-pollex/week1",
-              "/angular/angular-pollex/week2",
-              "/angular/angular-pollex/week3",
-              "/angular/angular-pollex/week4",
-            ],
-          },
-          {
-            title: "Angular Project",
-            path: "/angular/angular-project/",
-            children: [
-              "/angular/angular-project/",
-              "/angular/angular-project/formQuestions",
-            ],
-          },
+          // {
+          //   title: "Angular Form 筆記",
+          //   path: "/angular/react-form/",
+          //   children: [
+          //     "/angular/react-form/",
+          //     "/angular/react-form/reactForm1",
+          //     "/angular/react-form/reactForm2",
+          //     "/angular/react-form/reactForm3",
+          //     "/angular/react-form/reactForm4",
+          //     "/angular/react-form/reactForm5",
+          //   ],
+          // },
+          // {
+          //   title: "Material 筆記",
+          //   path: "/angular/material/",
+          //   children: [
+          //     "/angular/material/",
+          //   ],
+          // },
+          // {
+          //   title: "Angular Pollex",
+          //   path: "/angular/angular-pollex/",
+          //   children: [
+          //     "/angular/angular-pollex/",
+          //     "/angular/angular-pollex/week1",
+          //     "/angular/angular-pollex/week2",
+          //     "/angular/angular-pollex/week3",
+          //     "/angular/angular-pollex/week4",
+          //   ],
+          // },
+          // {
+          //   title: "Angular Project",
+          //   path: "/angular/angular-project/",
+          //   children: [
+          //     "/angular/angular-project/",
+          //     "/angular/angular-project/formQuestions",
+          //   ],
+          // },
         ]
       },
       {
