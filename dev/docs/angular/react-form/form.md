@@ -39,7 +39,7 @@ import { FormsModule } from '@angular/forms';
 
 定義 title, description, body 變數
 
-`editor.component.ts` 
+`editor.component.ts`
 
 ```ts
 import { ArticleResponse, Article, Author } from "../article.model";
@@ -112,7 +112,7 @@ ngForm 會建立出一個 FormGroup 裡面會包含一些東西
 
 ngModel 代表的是 FormControl
 
-    ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
+ngModel 可以從 angular 原始碼找出來，它繼承了 NgControl
 
 ```html
 ...
@@ -130,7 +130,7 @@ ngModel 代表的是 FormControl
 ...
 ```
 
-如果要放預設值，需改成 `[(ngModel)]` 
+如果要放預設值，需改成 `[(ngModel)]`
 
 ```html
 <div class="mb-3 col-6">
@@ -152,7 +152,7 @@ title = "lorem@scd.com";
 
 假如目前的需求是某個表單需要驗證還能填寫，這樣需改寫 input
 
-input 加上 #t="ngModel"， ngModel 會回傳 
+input 加上 #t="ngModel"， ngModel 會回傳
 
 FormControl 的東西，下面的 required 為 !!t.value
 
@@ -198,7 +198,7 @@ FormControl 的東西，下面的 required 為 !!t.value
 </button>
 ```
 
-    Template driven form 可以了解原理，但在專案上盡量不要使用
+> Template driven form 可以了解原理，但在專案上盡量不要使用
 
 ## Model driven form
 
@@ -254,7 +254,8 @@ export class EditorComponent implements OnInit {
 原本的 name 改成 formControlName 這樣就會從 formGroup 裡拿到它的屬性
 
 取值的方式使用
-```
+
+```html
 {{ formData.value | json }}
 ```
 
@@ -263,6 +264,7 @@ export class EditorComponent implements OnInit {
 若要給預設值直接在 new FormControl('abc') 即可
 
 `editor.component.html`
+
 ```html
 {{ formData.value | json}}
 <form [formGroup]="formData">
@@ -545,11 +547,13 @@ addtag() {
   });
 }
 ```
+
 ```html
 此時在 <input type="text" [formControl]="$any(tagControl)" /> 修改值時會直接改動
 
 在迴圈在跑時添加 idx 變數並加入 <button (click)="remove(idx)">x</button>
 ```
+
 ```html
 <div formArrayName="tagList">
   <ul>

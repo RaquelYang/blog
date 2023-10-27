@@ -18,7 +18,7 @@ module.exports = {
     ],
     sidebar: [     
       {
-        title: "Angular 筆記",
+        title: "Angular 菜比八筆記",
         path: "/angular/angular-beginner-note",
         children: [
           {

@@ -18,11 +18,10 @@
 
 - Model Driven Form - React Form  (困難但可製作各種複雜表單)
 
-這邊只會介紹 `Model Driven Form - React Form` 
+這邊只會介紹 `Model Driven Form - React Form`
 
 (Template Driven Form 可以了解原理但實作皆使用 Model Driven Form - React Form)
 
 以下直接進入實作的部分
 
 `此為 Udemy Angular Forms In Depth (Angular 16) 課程筆記`
-
