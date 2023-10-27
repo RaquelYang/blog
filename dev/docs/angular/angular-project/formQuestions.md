@@ -6,7 +6,7 @@
 + 第一頁選擇性別與年齡
 + 第二頁會隨著 A, B, C的問卷問題有所不同，點選回答時即可更換資料、預設為第一個選項、問題皆為單選題
 
-### 實作
+## 實作
 
 先用 service 寫出資料結構
 
@@ -124,6 +124,7 @@ export class AppComponent implements OnInit {
 ```
 
 `app.component.html`
+
 ```html
 <div [formGroup]="questionsForm" (submit)="submitForm()">
   <div *ngIf="page === 1">
@@ -153,6 +154,7 @@ export class AppComponent implements OnInit {
 但第二頁因為接收到的資料長度不同導致問題不同，且須接收到資料後才可以新增 FormControl
 
 `app.component.ts`
+
 ```ts
 import * as _ from 'lodash';
 
@@ -187,6 +189,7 @@ export class AppComponent implements OnInit {
 以下只顯示 page === 2 的頁面
 
 `app.component.html`
+
 ```html
 <div *ngIf="page === 2">
     <h2>{{ QuestionsData.secondPageTitle }}</h2>
@@ -217,6 +220,7 @@ export class AppComponent implements OnInit {
 當點選時把項目賦予點選的值
 
 `app.component.ts`
+
 ```ts
 updateForm(type: string, value: any): void {
     this.questionsForm.get(type)?.setValue(value);
@@ -224,6 +228,7 @@ updateForm(type: string, value: any): void {
 ```
 
 `app.component.scss`
+
 ```scss
 .option {
   span {

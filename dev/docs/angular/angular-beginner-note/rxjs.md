@@ -25,7 +25,6 @@ RxJS 是一套藉由 Observable sequences 來組合非同步行為和事件基�
 
 [在 Angular 中應用 RxJS 的 operators (2) - 進階應用]
 
-
 ### map
 
 RxJS 則是將一個訂閱可以得到的資料轉換成另外一筆資料

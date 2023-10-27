@@ -12,7 +12,7 @@
 
 + 結構型指令 (Structure Directives)
 
-  新增或刪除 DOM 改變 DOM 結構 
+  新增或刪除 DOM 改變 DOM 結構
   
   `NgIf`, `NgFor`, `NgSwitch` 來控制 `DOM` 結構
 

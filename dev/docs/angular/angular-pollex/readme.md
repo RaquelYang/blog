@@ -16,7 +16,7 @@ bootstrap modal 打開 > 使用  #content, (click)="open(content)"
 
 @ViewChild() staticModalAlert: ModalDirective;
 
-<input (blur)="open()"/> 
+<input (blur)="open()"/>
 ng-blur可以使用在window, input, select, textarea, a，這五種標籤，
 用來判斷焦點是否存在。
 

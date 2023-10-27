@@ -116,11 +116,11 @@ export class AppComponent {
 locale ] ] ] ] }}
 ```
 
-### currencyCode: 
+### currencyCode
 
 The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, such as USD for the US dollar and EUR for the euro. The default currency code can be configured using the DEFAULT_CURRENCY_CODE injection token.
 
-### display:
+### display
 
 code: Show the code (such as USD).
 
@@ -172,7 +172,7 @@ export class CurrencyPipeComponent {
 {{ value_expression | percent [ : digitsInfo [ : locale ] ] }}
 ```
 
-### digitsInfo, locale
+### digitsInfo & locale
 
 跟上面的 pipe 一樣
 

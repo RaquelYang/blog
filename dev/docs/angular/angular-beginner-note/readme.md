@@ -104,7 +104,6 @@ ng g c page1
 另外會 import page1 component 檔案到 `app.modules.ts`
 
 > 若未指定 module 會找一個離自己最近的 module 來 import component
-
 > 如果最近的 module 有兩個的話則需在後面指定 import 的 module，否則會無法建立 component
 
 指定元件 import 到指定的 module
@@ -148,7 +147,7 @@ ng generate -h
 
 ## 加入靜態資料到 Angular
 
-加入 `api folder`, `assets folder`, `blog-index.html` 靜態檔案複製到 `src` 資料夾內，並且重新啟動網站 
+加入 `api folder`, `assets folder`, `blog-index.html` 靜態檔案複製到 `src` 資料夾內，並且重新啟動網站
 
 如果直接在網址上面打 `http://localhost:4200/blog-index.html` 並不會看到頁面，需在 `angular.json` 檔案內設定 `assets` 路徑，在打包時才會看到搬移的檔案
 
@@ -201,7 +200,7 @@ base 為整份網頁所有的超連結預設的基礎
 
 複製 `blog-index.html` body 到 `app.component.html` 裡面貼上
 
-    mac 使用快速鍵 command + p 打開搜尋資料面板，輸入 appcom 快速搜尋檔案
+mac 使用快速鍵 command + p 打開搜尋資料面板，輸入 appcom 快速搜尋檔案
 
 貼完後回到首頁看一下有沒有問題
 
@@ -563,7 +562,7 @@ export class ArticleHeaderComponent implements OnInit {
 }
 ```
 
-在 article-list 裡新增事件 `(delete)` 
+在 article-list 裡新增事件 `(delete)`
 
 當子層 click button 時會觸發 (delete) 通知父層
 
