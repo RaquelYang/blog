@@ -6,8 +6,6 @@
 
 [week3](week3.md)
 
-
-
 疑問：
 .model > interface
 .class > interface

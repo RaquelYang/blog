@@ -18,7 +18,6 @@ export class AppComponent {
 }
 ```
 
-
 ```html
 <!-- 在 html 模板中加入 pipe async 在此時訂閱它，並 render 在畫面上 -->
 <li *ngFor="let todo of todos$ | async">{{ todo.title }}</li>
@@ -79,6 +78,7 @@ ngOnInit() {
 ## 搭配 ngIf 使用
 
 `修改前`
+
 ```html
 <ng-container *ngIf="todos$ | async; else loading">>
   <ul>
@@ -89,6 +89,7 @@ ngOnInit() {
 ```
 
 `修改後`
+
 ```html
 <ng-container *ngIf="todos$ | async as todos; else loading">
   <ul>

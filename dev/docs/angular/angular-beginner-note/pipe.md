@@ -117,8 +117,11 @@ locale ] ] ] ] }}
 ```
 
 ### currencyCode: 
+
 The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, such as USD for the US dollar and EUR for the euro. The default currency code can be configured using the DEFAULT_CURRENCY_CODE injection token.
+
 ### display:
+
 code: Show the code (such as USD).
 
 symbol(default): Show the symbol (such as $).
@@ -126,6 +129,7 @@ symbol(default): Show the symbol (such as $).
 symbol-narrow: Use the narrow symbol for locales that have two symbols for their currency. For example, the Canadian dollar CAD has the symbol CA$ and the symbol-narrow $. If the locale has no narrow symbol, uses the standard symbol for the locale.
 
 ### digitsInfo, locale
+
  上面的 pipe 一樣
 
 `app.component.ts`
@@ -169,6 +173,7 @@ export class CurrencyPipeComponent {
 ```
 
 ### digitsInfo, locale
+
 跟上面的 pipe 一樣
 
 `app.component.ts`
@@ -202,16 +207,19 @@ export class PercentPipeComponent {
 ```
 
 ### value_expression
+
 輸入日期格式、1970 到現在的毫秒數或 ISO string
 
 ### format
 
-可以輸入內建格式 'short', 'medium', 'long', 'full'... 
+可以輸入內建格式 'short', 'medium', 'long', 'full'...
 
 ### timezone
+
 Default 為瀏覽器內建的 local 時區，'+0430' 的話則是在格林威治標準時間 +0430
 
-### locale:
+### locale
+
 跟上面的 pipe 一樣
 
 `app.component.ts`

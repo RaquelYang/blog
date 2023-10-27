@@ -1,5 +1,7 @@
 # Angular 介紹
 
+介紹 Angular 入門所需要的一些基本知識，可以先去下載 [source code] 在進入以下介紹
+
 ## 安裝 @angular/cli
 
 ```sh
@@ -39,10 +41,14 @@ SCSS [https://sass-lang.com/documentation/syntax#scss]
 npm start
 ```
 
-## Angular 目錄結構用途
+## Angular 目錄結構
 
-src > app > 主要寫程式的地方  
-assets > 靜態檔案 css, js, icon, images
+```mermaid
+flowchart LR
+    A(src)--主要寫程式的地方-->B(app)
+
+    C(assets-放靜態檔案)
+```
 
 ## Angular 基本語法
 
@@ -57,7 +63,7 @@ assets > 靜態檔案 css, js, icon, images
   imports: [BrowserModule, AppRoutingModule],
   // import service
   providers: [],
-  // 啟動根元件
+  // 啟動根元
   bootstrap: [AppComponent],
 })
 
@@ -77,10 +83,10 @@ export class AppModule {}
 })
 ```
 
-加入一個 component 到 app
+建立一個 component 到 app，打開 terminal
 
 ```sh
-# 加入 component 到 app 下面
+# 新增 component 到 app 下面
 ng generate component page1
 # 簡寫
 ng g c page1
@@ -88,16 +94,20 @@ ng g c page1
 
 建立完 component 後資料夾內會有四個檔案
 
-+ page1.component.css
-+ page1.component.html
-+ page1.component.spec.ts
-+ page1.component.ts
+```any
+    page1.component.css
+    page1.component.html
+    page1.component.spec.ts
+    page1.component.ts
+```
 
 另外會 import page1 component 檔案到 `app.modules.ts`
 
-若未指定 module 會找一個離自己最近的 module 來 import
+> 若未指定 module 會找一個離自己最近的 module 來 import component
 
-如果最近的 module 有兩個的話則需在後面指定 import 的 module
+> 如果最近的 module 有兩個的話則需在後面指定 import 的 module，否則會無法建立 component
+
+指定元件 import 到指定的 module
 
 ```sh
 ng g component page1 --module=layout.module.ts
@@ -113,7 +123,7 @@ ng g component page1 --module=layout.module.ts
 ...
 ```
 
-查詢建立不同類型的 component
+查詢 angular-cli 建立不同類型的 component
 
 ```sh
 ng generate -h
@@ -138,11 +148,11 @@ ng generate -h
 
 ## 加入靜態資料到 Angular
 
-加入 api folder, assets folder, blog-index.html 靜態檔案複製到 `src` 資料夾內，並且重新啟動網站 [source code]
+加入 `api folder`, `assets folder`, `blog-index.html` 靜態檔案複製到 `src` 資料夾內，並且重新啟動網站 
 
-如果直接在網址上面打 http://localhost:4200/blog-index.html 並不會看到頁面，需在 `angular.json` 檔案內設定 `assets` 路徑，在打包時才會看到搬移的檔案
+如果直接在網址上面打 `http://localhost:4200/blog-index.html` 並不會看到頁面，需在 `angular.json` 檔案內設定 `assets` 路徑，在打包時才會看到搬移的檔案
 
-projects > demo > architect > build > options > assets 內新增
+angular.json 下面的 projects > demo > architect > build > options > assets 新增以下程式碼
 
 `angular.json`
 
@@ -157,11 +167,11 @@ projects > demo > architect > build > options > assets 內新增
 
 新增完後再重啟網站 npm start
 
-在網址列輸入 
+在網址列輸入
 
-http://localhost:4200/blog-index.html
+`http://localhost:4200/blog-index.html`
 
-http://localhost:4200/api/db.json 
+`http://localhost:4200/api/db.json`
 
 看網頁即可正常顯示
 
@@ -189,7 +199,7 @@ base 為整份網頁所有的超連結預設的基礎
 <link href="/assets/styles/mainapp.css" rel="stylesheet" />
 ```
 
-複製 `blog-index.html` body 到 `app.component.html` 裡面貼上 
+複製 `blog-index.html` body 到 `app.component.html` 裡面貼上
 
     mac 使用快速鍵 command + p 打開搜尋資料面板，輸入 appcom 快速搜尋檔案
 
@@ -258,6 +268,7 @@ npm outdated -g
 npm install -g @vue/cli @angular/cli
 ```
 
+<!-- 這個感覺可以搬走 -->
 ## 範本參考變數 (Template reference variables)
 
 ### DOM
@@ -387,11 +398,9 @@ export class AppModule {}
 ng g m article -m app
 ```
 
-將 article.component 中的 articleList 拆成 articleHeader, articleBody 
+將 article.component 中的 articleList 拆成 articleHeader, articleBody
 
 引入到 articleModule 裡面
-
-
 
 要在 article 資料夾建立 articleList 元件，直接在 vscode folder 按下右鍵選擇 `在整合式終端機開啟`
 
@@ -421,9 +430,9 @@ ng g c article-list
 
 `app.component.ts` data 搬入 article-list.component.ts 裡
 
-在 article-list 下建立 article-header, article-body 
+在 article-list 下建立 article-header, article-body
 
-    需注意終端機的位置，在 article 資料夾下
+> 需注意終端機的位置，在 article 資料夾下
 
 ```sh
 ng g c article-header

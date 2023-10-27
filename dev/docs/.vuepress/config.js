@@ -18,20 +18,20 @@ module.exports = {
     ],
     sidebar: [     
       {
-        title: "Angular 技術筆記",
-        path: "/angular/",
+        title: "Angular 筆記",
+        path: "/angular/angular-beginner-note",
         children: [
           {
             title: "Angular 筆記",
-            path: "/angular/angular/",
+            path: "/angular/angular-beginner-note/",
             children: [
-              "/angular/angular/",
-              "/angular/angular/pipe",
-              "/angular/angular/rxjs",
-              "/angular/angular/directives",
-              "/angular/angular/dataBinding",
-              "/angular/angular/nameCalled",
-              "/angular/angular/deploy",
+              "/angular/angular-beginner-note/",
+              "/angular/angular-beginner-note/pipe",
+              "/angular/angular-beginner-note/rxjs",
+              "/angular/angular-beginner-note/directives",
+              "/angular/angular-beginner-note/dataBinding",
+              "/angular/angular-beginner-note/nameCalled",
+              "/angular/angular-beginner-note/deploy",
             ],
           },
           {

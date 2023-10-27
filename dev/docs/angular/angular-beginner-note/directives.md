@@ -1,14 +1,16 @@
 # 三種 Angular 指令 (Directives)
 
-+ ### 元件型指令
++ 元件型指令
+  
   `component`
-+ ### 屬性型指令
+
++ 屬性型指令
 
   修改元素的外觀或行為 `NgStyle`, `NgClass`
 
   常使用 NgClass
 
-+ ### 結構型指令 (Structure Directives)
++ 結構型指令 (Structure Directives)
 
   新增或刪除 DOM 改變 DOM 結構 
   
@@ -81,7 +83,7 @@ export class FooterComponent implements OnInit {
 
 ### NgStyle
 
-### `範例一`
+`範例一`
 
 首先在 header.component.ts 建立變數 counter 並在 changeTitle() 觸發時讓 counter++
 
@@ -107,6 +109,7 @@ export class HeaderComponent implements OnInit {
 所以每當 click img 時會觸發 changeTitle() 讓 counter++ 連動 h3 字型大小
 
 `header.component.html`
+
 ```html
 ...
 <img
@@ -123,11 +126,12 @@ export class HeaderComponent implements OnInit {
 </h3>
 ```
 
-### `範例二`
+`範例二`
 
 寫入一個 return function
 
 `header.component.html`
+
 ```html
 ...
 <img
@@ -167,9 +171,10 @@ export class HeaderComponent implements OnInit {
 }
 ```
 
-### `範例三`
+`範例三`
 
 `header.component.html`
+
 ```html
 ...
 <img
@@ -188,11 +193,12 @@ export class HeaderComponent implements OnInit {
 
 ### NgClass
 
-### `範例一`
+`範例一`
 
 `ngClass` 後面綁定的值為 boolean，當 counter 餘數等於零時會加入 .highlight class
 
 `header.component.html`
+
 ```html
 <h3 [ngClass]="{'highlight': counter % 2 == 0}">
   技術分享 {{ counter }}
@@ -200,13 +206,14 @@ export class HeaderComponent implements OnInit {
 ```
 
 `header.component.scss`
+
 ```scss
 .highlight {
   background-color: coral;
 }
 ```
 
-### `範例二`
+`範例二`
 
 ```html
 <h3 [class.highlight]="counter % 2 == 0">
@@ -230,9 +237,9 @@ export class HeaderComponent implements OnInit {
 
 基本語法如下
 
-<pre>
+```html
 [ngSwitch]="conditionExpression"
-</pre>
+```
 
 conditionExpression > 判斷式
 *ngSwitchCase="expression"

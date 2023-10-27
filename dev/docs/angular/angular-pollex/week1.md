@@ -1,12 +1,13 @@
 # Week1
 
-### 關於 ng-template, ng-container, ng-content
+`關於 ng-template, ng-container, ng-content`
 
 ## ng-template
 
 `ng-template` 屬於模板元素預設不顯示，需搭配 `ngIf`, `ngFor`, `ngSwitch` 使用
 
-### `範例一`
+`範例一`
+
 ```html
 <div *ngIf="show">show1</div>
 <ng-template [ngIf]="show">show2</ng-template>
@@ -18,7 +19,8 @@
 
 當 show 為 true 顯示 div 否則顯示 `#showWorld` 的內容
 
-### `範例二`
+`範例二`
+
 ```html
 <div *ngIf="show; else showWorld">Hello</div>
 <ng-template #showWorld>
@@ -43,21 +45,22 @@ ng-container 它在 DOM 中不會佔元素的位置(空元素)，故使用時不
 
 ## ng-content
 
-`ng-content` 使用於組件之間，假設有兩個組件 app(父), main(子) 
+`ng-content` 使用於組件之間，假設有兩個組件 app(父), main(子)
 
-兩個 components 當我想另外加資料在 app 的 main 中時即可使用 
+兩個 components 當我想另外加資料在 app 的 main 中時即可使用
 
-
-### `範例一`
+`範例一`
 
 原始資料如下
 
 `app.component.html`
+
 ```html
 <app-main></app-main>
 ```
 
 `main.component.html`
+
 ```html
 <p>main works!</p>
 ```
@@ -65,6 +68,7 @@ ng-container 它在 DOM 中不會佔元素的位置(空元素)，故使用時不
 將 app 資料放入 main 元件內
 
 `app.component.html`
+
 ```html
 <app-main>
   <p>APP 要加資料在元件裡面</p>
@@ -72,6 +76,7 @@ ng-container 它在 DOM 中不會佔元素的位置(空元素)，故使用時不
 ```
 
 `main.component.html`
+
 ```html
 <p>main works!</p>
 <ng-content></ng-content>
@@ -79,9 +84,10 @@ ng-container 它在 DOM 中不會佔元素的位置(空元素)，故使用時不
 
 當我想加很多資料到元件內各位置的方式， select 可以選擇元素，所以想坐著放碩躺著放都可以
 
-### `範例二`
+`範例二`
 
 `app.component.html`
+
 ```html
 <app-main>
   <p>APP 要加資料在元件裡面</p>
@@ -92,6 +98,7 @@ ng-container 它在 DOM 中不會佔元素的位置(空元素)，故使用時不
 ```
 
 `main.component.html`
+
 ```html
 <p>main works!</p>
 

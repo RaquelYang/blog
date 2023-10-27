@@ -1,13 +1,17 @@
 # 資料繫結的四種方法
 
 + 內嵌繫結 (Interpolation)
+  
   ```html
   {{ xproperty }}
   ```
+
 + 屬性繫結 (Property Binding)
+  
   ```html
   [property] = 'statement'
   ```
+
 + 事件繫結 (Event Binding)
 
   ```html
@@ -15,6 +19,7 @@
   ```
 
 + 雙向繫結 (Two-way Binding)
+  
   ```html
   [(ngModel)] = property
   ```
@@ -57,13 +62,13 @@ export class AppComponent {
 
 打開 vscode 終端機跳到問題那邊有顯示第幾行的問題，將他修改成正確語法即可
 
-### <b>修改前</b>
+`修改前`
 
 ```html
 <table class="calendar" summary="" style=";border-collapse:collapse;"></table>
 ```
 
-### <b>修改後</b>
+`修改後`
 
 ```html
 <table class="calendar" summary="" style="border-collapse:collapse"></table>
@@ -80,7 +85,8 @@ export class AppComponent {
 }
 ```
 
-### `範例 1`  
+`範例 1`
+
 `app.component.html` 的 href 改成以下程式碼，則為屬性繫結
 
 ```html
@@ -102,7 +108,9 @@ export class AppComponent {
   imgUrl = "/assets/images/logo.png";
 }
 ```
-### `範例 2`
+
+`範例 2`
+
 `app.component.html`
 
 ```html
@@ -210,8 +218,8 @@ export class AppComponent {
 
 PointerEvent 裡面有許多參數可以使用
 
-- altKey > 點擊時是否有按 Alt (option)
-- ctrlKey > 點擊時是否有按 Ctrl
++ altKey > 點擊時是否有按 Alt (option)
++ ctrlKey > 點擊時是否有按 Ctrl
 
 ### `範例一`
 
@@ -233,7 +241,7 @@ export class AppComponent {
 
 測試後 click 並無反應，需按著 Alt (option) + click 則可以改變 title
 
-### `範例二`
+`範例二`
 
 優化以上程式碼
 
@@ -288,7 +296,7 @@ export class AppComponent {
 
 在 input 裡面加入`[(ngModel)]="keyword"`
 
-代表雙向綁定 keyword 這個變數，但因為此時 Angular 不認識<code>[()]</code>，需在 module 引入 FormsModule 才行
+代表雙向綁定 keyword 這個變數，但因為此時 Angular 不認識`[()]`，需在 module 引入 FormsModule 才行
 
 `app.component.html`
 
@@ -366,5 +374,3 @@ export class AppComponent {
   }
 }
 ```
-
-補完程式碼後在 input 輸入文字，確認 keyword 的文字與 keyword.length 資料有更改，並且 focus 在 input 時按下 esc 時可以讓 input 清空
