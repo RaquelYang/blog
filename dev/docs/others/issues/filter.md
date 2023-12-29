@@ -1,4 +1,4 @@
-# 【JS】的 filter
+# filter
 
 最近在複習 todolist 但發現對於 filter() 這個方法觀念有點模糊，所以來寫一下遇到的問題
 先到 mdn wev docs 看一下 filter 相關的資料 [filter()]

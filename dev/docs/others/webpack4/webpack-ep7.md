@@ -1,4 +1,4 @@
-# webpack4 環境建置-7
+# webpack4 環境建置 - Ep7
 
 ## Images webpack loader
 

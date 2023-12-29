@@ -1,4 +1,4 @@
-# 【JS】var, let, const 差異
+# var, let, const 差異
 
 ## var
 

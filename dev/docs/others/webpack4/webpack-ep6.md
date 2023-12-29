@@ -1,4 +1,4 @@
-# webpack4 環境建置-6
+# webpack4 環境建置 - Ep6
 
 ## babel/polyfill
 

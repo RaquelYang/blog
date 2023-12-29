@@ -1,4 +1,4 @@
-# webpack4 環境建置-2
+# webpack4 環境建置 - Ep2
 
 webpack 去讀取其他副檔名的檔案，需要使用 loader 來進行編譯，loader 代表 webpack 去解析除了 js 以外的檔案所需要的套件
 ## css-loader
