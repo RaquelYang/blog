@@ -1,4 +1,4 @@
-# Angular 2 表單處理與驗證
+# Angular 表單處理與驗證
 
 ## 什麼是 Angular Forms
 

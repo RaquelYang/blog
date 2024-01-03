@@ -24,13 +24,30 @@ module.exports = {
             title: "Angular Beginner",
             path: "/angular/angular-beginner/",
             children: [
-              "/angular/angular-beginner/",
-              "/angular/angular-beginner/pipe",
-              "/angular/angular-beginner/rxjs",
-              "/angular/angular-beginner/directives",
-              "/angular/angular-beginner/dataBinding",
-              "/angular/angular-beginner/nameCalled",
-              "/angular/angular-beginner/deploy",
+              {
+                title: "pipe",
+                path: "/angular/angular-beginner/pipe",
+              },
+              {
+                title: "rxjs",
+                path: "/angular/angular-beginner/rxjs",
+              },
+              {
+                title: "directives",
+                path: "/angular/angular-beginner/directives",
+              },
+              {
+                title: "data-binding",
+                path: "/angular/angular-beginner/data-binding",
+              },
+              {
+                title: "name-called",
+                path: "/angular/angular-beginner/name-called",
+              },
+              {
+                title: "deploy",
+                path: "/angular/angular-beginner/deploy",
+              },
             ],
           },
           {
@@ -55,7 +72,20 @@ module.exports = {
           {
             title: "Angular Route Advanced",
             path: "/angular/angular-route-advanced/",
-            children: ["/angular/angular-route-advanced/"],
+            children: [
+              {
+                title: "Angular Route Advanced - Ep1",
+                path: "/angular/angular-route-advanced/angular-route-ep1",
+              },
+              {
+                title: "Angular Route Advanced - Ep2",
+                path: "/angular/angular-route-advanced/angular-route-ep2",
+              },
+              {
+                title: "Angular Route Advanced - Ep3",
+                path: "/angular/angular-route-advanced/angular-route-ep3",
+              },
+            ],
           },
         ],
       },
