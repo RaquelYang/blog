@@ -144,7 +144,7 @@ module.exports = {
             path: "/others/markdown/",
             children: [
               "/others/markdown/",
-              "/others/markdown/GoogleMarkDownSpec",
+              "/others/markdown/google-markdown-spec",
             ],
           },
           {
@@ -179,10 +179,10 @@ module.exports = {
             path: "/vue/firebase/",
             children: [
               "/vue/firebase/",
-              "/vue/firebase/calendar1",
-              "/vue/firebase/calendar2",
-              "/vue/firebase/calendar3",
-              "/vue/firebase/calendar4",
+              "/vue/firebase/calendar-ep1",
+              "/vue/firebase/calendar-ep2",
+              "/vue/firebase/calendar-ep3",
+              "/vue/firebase/calendar-ep4",
             ],
           },
         ],

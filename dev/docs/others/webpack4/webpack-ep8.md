@@ -34,11 +34,13 @@ module.exports = {
 ```
 
 index.js
+
 ```js
 console.log($("#box1"));
 ```
 
 index.html
+
 ```html
 <div id="box1">123</div>
 ```
@@ -61,7 +63,7 @@ npm install -D html-webpack-plugin@4
 
 在 src 資料夾建立 html 資料夾，把 index.html 放到 html 資料夾內
 
-```
+```sh
 src
 ├── assets
 ├── css
@@ -72,6 +74,7 @@ src
 ```
 
 index.html 把內文清乾淨
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +89,6 @@ index.html 把內文清乾淨
 </body>
 </html>
 ```
-
 
 webpack.config.js
 
@@ -135,8 +137,8 @@ console.log($("#box1"));
 
 然後把 rules html file-loader 拿掉，打開 F12 elements 可以發現你面有載入 index.js script 代表 entry js 有引入進去，但可以發現瀏覽器的 title 並沒有改變，需把模板改成以下字串
 
+index.html
 
-index.html 
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -151,6 +153,7 @@ index.html
 </body>
 </html>
 ```
+
 若是多個 html 則需在 plugin 下面引入多個 HtmlWebpackPlugin
 
 webpack.config.js

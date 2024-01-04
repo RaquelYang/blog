@@ -96,13 +96,14 @@ npm i cross-env --save-dev
 ```
 
 到 webpack 拿到環境變數 `webpack.config.js` 加入下列程式碼，以便確認有讀到 process.env
+
 ```js
 // webpack.config.js
 console.log(process.env.NODE_ENV);
 ```
 
-+  mac 可以直接 run
-+  windows 需要在 `package.json` script 前面加入 cross-env
++ mac 可以直接 run
++ windows 需要在 `package.json` script 前面加入 cross-env
 
 ```json
 // package.json
@@ -157,7 +158,7 @@ webpack 存擋自動編譯(watch) - Hot-reload
 }
 ```
 
-在終端機執行以下程式碼 
+在終端機執行以下程式碼
 
 ```sh
 # terminal

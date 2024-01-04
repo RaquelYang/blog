@@ -53,7 +53,7 @@ yarn add -D vuepress
 
 新增 `.gitignore` 裡面打入下列程式碼
 
-```
+```sh
 node_modules
 ```
 

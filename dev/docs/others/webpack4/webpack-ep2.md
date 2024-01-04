@@ -1,6 +1,7 @@
 # webpack4 環境建置 - Ep2
 
 webpack 去讀取其他副檔名的檔案，需要使用 loader 來進行編譯，loader 代表 webpack 去解析除了 js 以外的檔案所需要的套件
+
 ## css-loader
 
 先安裝 css-loader
@@ -34,7 +35,7 @@ module.exports = {
 
 調整一下 js, css 資料夾架構並新增 index.css, index.html
 
-```
+```sh
 init
 ├─index.html
 ├─package-lock.json
@@ -49,6 +50,7 @@ init
 ```
 
 因為調整資料夾結構，在 `webpack.config.js` 需要修改 entry 路徑
+
 ```js
 // webpack.config.js
 module.exports = {
@@ -88,9 +90,9 @@ h1 {
   color: red;
 }
 
-``` 
+```
 
-然後在 `index.js` 引入 css 
+然後在 `index.js` 引入 css
 
 ```js
 // index.js
@@ -99,7 +101,7 @@ import "../css/index.css";
 
 引用完後 npm run deploy 會發現跳 error
 
-```
+```sh
 Module not found: Error: Can't resolve 'style-loader' in '/Users/raquel/Desktop/F2E-4th/init/src'
 resolve 'style-loader' in ......
 ```
@@ -210,6 +212,7 @@ module.exports = {
 ```
 
 到 `webpack.config.js` 加入 postcss-loader
+
 ```js
 // webpack.config.js
 module.exports = {

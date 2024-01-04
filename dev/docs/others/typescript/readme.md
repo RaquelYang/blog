@@ -18,7 +18,7 @@ str1 = 'bruce2';
 let num = 1000;
 let boo = true;
 
-// 因筆記方便故定義變數類型與復值
+// 因筆記方便故定義變數類型與賦值
 let n: null = null;
 let un: undefined = undefined;
 
@@ -26,7 +26,7 @@ let un: undefined = undefined;
 let test: any = 1
 ```
 
-## 陣列
+## Array
 
 ```ts
 // ---- Array ----
@@ -41,7 +41,9 @@ let tuple: [number, string, boolean] = [1, 'a', true]
 // 二維元組
 let tuple: [string, string][] = [['a', 'a'],['b', 'c']]
 ```
+
 ## Enum
+
 ```ts
 // ---- Enum 枚舉 ----
 
@@ -62,13 +64,16 @@ console.log(status) // 0
 ```
 
 ## Union
+
 ```ts
 // ---- Union ----
 let aaa: number | string;
 aaa = 123;
 aaa = 'aaa';
 ```
-## type
+
+## Type
+
 ```ts
 // ---- type ----
 // 自定義類型，有點類似 interface
@@ -92,10 +97,10 @@ interface User {
   name: string;
   age: number;
 }
-
-
 ```
-## object
+
+## Object
+
 ```ts
 // ---- object ----
 // 不可擴充
@@ -128,7 +133,8 @@ const obj1: Card1 = {
 }
 ```
 
-## function
+## Function
+
 ```ts
 // ---- function ----
 // 參數
@@ -164,7 +170,9 @@ const func = () => {
   return 1
 }
 ```
-## unknown
+
+## Unknown
+
 ```ts
 // ---- 斷言 as unknown ----
 // call API 時有些資料無法推導出來
@@ -198,7 +206,9 @@ type Beta = {
 // 所以先把 data1 轉換成 unknown 在轉換成想要的 type (Beta)
 const beta = data1 as unknown as Beta
 ```
-## class
+
+## Class
+
 ```ts
 // ---- class ----
 
@@ -279,7 +289,8 @@ class Car implenments CarProps {
   start() {}
 }
 ```
-## 泛型
+
+## Generics
 
 ```ts
 // ---- 泛型 ----
@@ -306,11 +317,13 @@ console.log('p', p)
 console.log('p1', p1)
 
 ```
+
 [typescript utility]
 
 裡面有很多工具可以使用
 
-## utility
+## Utility
+
 ```ts
 // ---- utility ----
 // Record

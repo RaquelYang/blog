@@ -17,7 +17,7 @@ import 'babel/polyfill';
 
 import 後可以使用 async, await 與其他的東西(...)
 
-## Resolve 
+## Resolve
 
 在 webpack 加入 resolve modules 的設定在引入模組時可以省略路徑
 
@@ -68,13 +68,14 @@ console.log(item);
 
 extensions 可以設定多個，但檔名不能一樣，如果一樣 webpack 會無法分辨出是哪個副檔名的檔案
 
-一般 extensions 只會設定 .js 
+一般 extensions 只會設定 .js
 
 使用 resolve 簡化(only 開發) `webpack.config.js`
 
 output 不能使用 resolve
 
 原本 entry `webpack.config.js`
+
 ```js
 // webpack.config.js
 module.exports = {
@@ -86,6 +87,7 @@ module.exports = {
 ```
 
 簡化後 `webpack.config.js`
+
 ```js
 // webpack.config.js
 module.exports = {
@@ -138,6 +140,7 @@ scss/ sass 那邊規則需要改一下
 透過 style-loader 先把 css base64 放到 js 裡面再透過 loader 轉換後放到 css 裡面
 
 `webpack.config.js`
+
 ```js
 // webpack.config.js
 module.exports = {
@@ -159,6 +162,7 @@ module.exports = {
 
 再到 resolve 新增一個 module，並新增一個 images 的資料夾
 `webpack.config.js`
+
 ```js
 // webpack.config.js
 module.exports = {
@@ -202,5 +206,3 @@ module.exports = {
   background: url('~1.jpeg');
 }
 ```
-
-

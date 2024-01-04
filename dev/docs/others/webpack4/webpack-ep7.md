@@ -9,6 +9,7 @@ npm i -D images-webpack-loader
 直接在 asset 下面加個 use，會先判斷 image 是否要壓縮再進行 base64 轉換
 
 `webpack.config.js`
+
 ```js
 // webpack.config.js
 module.exports = {
@@ -95,6 +96,7 @@ npm run deploy
 但如果在 assets 放入字型檔，在 scss 引入的話會報錯，需在 webpack 內加入規則，放在 scss, css 上面
 
 `webpack.config.js`
+
 ```js
 // webpack.config.js
 module.exports = {

@@ -4,8 +4,7 @@
 
 目前情況是 node_modules 跟自己的 js 放在同一包裡面
 
-當修正檔案時需要在重新打包 node_modules + js，後面做法是將 
-
+當修正檔案時需要在重新打包 node_modules + js，後面做法是將
 
 node_modules 打包成 Vendor.js
 
@@ -78,4 +77,3 @@ module.exports = {
 ```
 
 在 rules 裡面新增 include, exclude webpack 就（不）會在指定的資料夾搜尋，這樣可以在打包的時候速度變快
-

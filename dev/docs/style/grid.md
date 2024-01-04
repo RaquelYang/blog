@@ -34,6 +34,7 @@ rows(直向)：每行各 100px
   grid-template-rows: 100px 100px 100px;
 }
 ```
+
 ![first grid](../assets/images/grid/first-grid.png)
 
 還有其他可以變化的地方，可把寬度改成 fr 的單位
@@ -65,7 +66,6 @@ grid-template: rows / columns;
 }
 ```
 
-
 ## Layout Grid
 
 先使用簡單的 layout 當作範例，比如該 layout 包括header, menu, content, footer
@@ -78,6 +78,7 @@ grid-template: rows / columns;
   <div class="footer">FOOTER</div>
 </div>
 ```
+
 ```scss
 .container {
   display: grid;
@@ -114,6 +115,7 @@ grid-template: rows / columns;
 }
 
 ```
+
 ![layout grid1](../assets/images/grid/layout1.png)
 
 再將 scss 改一下就可以變成不同的 layout
@@ -142,6 +144,7 @@ grid-template: rows / columns;
 }
 
 ```
+
 ![layout grid2](../assets/images/grid/layout2.png)
 
 ## Grid area
@@ -193,6 +196,7 @@ grid-template: rows / columns;
 }
 
 ```
+
 ![grid area](../assets/images/grid/grid-area1.png)
 
 ```scss
@@ -261,6 +265,7 @@ grid-template: rows / columns;
   grid-template-rows: repeat(2, 50px);
 }
 ```
+
 ### 固定 50px
 
 ![Auto-Fit and MinMax](../assets/images/grid/auto-fit1.png)
@@ -281,6 +286,7 @@ grid-template: rows / columns;
   grid-template-rows: repeat(2, 50px);
 }
 ```
+
 ![Auto-Fit and MinMax](../assets/images/grid/auto-fit4.png)
 ![Auto-Fit and MinMax](../assets/images/grid/auto-fit5.png)
 
@@ -380,11 +386,14 @@ img {
   // grid-column: span 2;
 }
 ```
-### grid-column: 1 / span 2
-![Image grid](../assets/images/grid/image-grid2.png)
-### grid-column: auto / span 2
-![Image grid](../assets/images/grid/image-grid3.png)
 
+### grid-column: 1 / span 2
+
+![Image grid](../assets/images/grid/image-grid2.png)
+
+### grid-column: auto / span 2
+
+![Image grid](../assets/images/grid/image-grid3.png)
 
 ```scss
 img {
@@ -415,10 +424,12 @@ img {
   grid-column: span 2;
 }
 ```
+
 當隨意調整排列時，第二列第二格沒辦法填滿（col=2）所以會空白並折行
 ![Image grid](../assets/images/grid/image-grid4.png)
 
 若想要後面的補齊則加入 grid-auto-flow: dense;
+
 ```scss
 .container {
   background-color: lightcoral;
@@ -439,6 +450,7 @@ img {
 將 grid 命名後使用名稱來限制 grid 範圍
 
 先建立基本樣式
+
 ```html
 <div class="container">
   <div class="header">HEADER</div>
@@ -472,6 +484,7 @@ img {
   grid-column: 1 / 3;
 }
 ```
+
 layout 就會像下圖
 
 ![grid area](../assets/images/grid/grid-area1.png)
@@ -508,10 +521,11 @@ layout 就會像下圖
   // grid-column: 1 / 3;
 }
 ```
+
 加入名稱後就可以使用名稱還定義格線位置
 
-
 接下來加入 rows
+
 ```scss
 .container {
   display: grid;
@@ -553,8 +567,8 @@ layout 就會像下圖
 
 Grid 也可以使用 justify-content, align-content, justify-items, align-items 排列(跟 flex 一樣)
 
-
 先建立基本樣式
+
 ```html
 <div class="container">
   <div>1</div>
@@ -565,6 +579,7 @@ Grid 也可以使用 justify-content, align-content, justify-items, align-items 
   <div>6</div>
 </div>
 ```
+
 ```scss
 .container {
   border: 1px solid black;
@@ -575,11 +590,13 @@ Grid 也可以使用 justify-content, align-content, justify-items, align-items 
   grid-gap: 3px;
 }
 ```
+
 ![grid align](../assets/images/grid/grid-align1.png)
 
 ### justify-content and align-content
 
 加入 justify-content, align-content 後就可以隨意排列整個 container
+
 ```scss
 .container {
   border: 1px solid black;
@@ -625,6 +642,7 @@ justify-self, align-self >> 下在子層
 </div>
 
 ```
+
 ```scss
 .container {
   border: 1px solid black;
@@ -655,13 +673,11 @@ justify-self, align-self >> 下在子層
 
 接下來看一些 grid 應用吧
 
-
 其他資料
 
 [CSS Grid | 剛學會怎麼用 Grid，那就來畫個 TV 檢驗圖練練手吧！]
 
 [畫個飛利浦 PM5544 檢驗圖]
-
 
 [CSS Grid Course]: https://www.youtube.com/watch?v=t6CBKf8K_Ac&t=2185s
 

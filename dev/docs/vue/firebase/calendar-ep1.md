@@ -1,4 +1,4 @@
-# 萬年曆 Calendar Part1
+# 萬年曆 Calendar - Ep1
 
 [教學影片](https://www.youtube.com/watch?v=2NOsjTT1b_k)
 
@@ -9,12 +9,12 @@
 使用的架構為 Vue + Vuetify + Firebase storage
 
 版本別如下：
-| 名稱 | 版本 |
-| ---- | ---- |
-| Vue | 2.6.11 |
-| Vuetify | 2.6.0 |
-| Firebase | 9.6.10 |
-| firestore | 1.1.6 |
+| 名稱      | 版本   |
+| --------- | ------ |
+| Vue       | 2.6.11 |
+| Vuetify   | 2.6.0  |
+| Firebase  | 9.6.10 |
+| firestore | 1.1.6  |
 
 ## 創建一個 firebase app
 

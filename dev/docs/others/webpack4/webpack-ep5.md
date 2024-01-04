@@ -33,7 +33,7 @@ module.exports = {
 
 在 `.babelrc` 內加入
 
-```
+```sh
 {
   "presets": ["@babel/preset-env"]
 }
@@ -94,7 +94,7 @@ module.exports = function(){
 
 此時 console 會出現一個 function
 
-```
+```sh
 ƒ () {
   console.log('module');
 }
@@ -130,7 +130,7 @@ item {name: 'Mike'}
 
 `webpack.config.js` 無法使用 ES6 來寫，只能使用var required
 
-### Proposal class properties 
+### Proposal class properties
 
 到 `index.js` 裡面建立一個 class
 
@@ -183,7 +183,7 @@ new Main();
 
 ### 解法二
 
-安裝 Proposal class properties 
+安裝 Proposal class properties
 
 ```sh
 # terminal
@@ -192,11 +192,12 @@ npm i @babel/plugin-proposal-class-properties -D
 
 到 babel 設定檔加入 plugins `.babelrc`
 
-```
+```json
 "plugins": ["@babel/plugin-proposal-class-properties"]
 ```
 
 改寫 `index.js` class
+
 ```js
 // index.js
 class Main {

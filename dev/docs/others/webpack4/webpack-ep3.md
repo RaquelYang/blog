@@ -8,7 +8,7 @@
 
 新增 `.gitignore` 裡面加入要忽略的資料夾
 
-```
+```sh
 node_modules
 ```
 
@@ -19,7 +19,7 @@ tree gitignore
 
 出現目前資料夾結構如下
 
-```
+```sh
 .
 ├── dist
 │   ├── about.js
@@ -91,7 +91,7 @@ npm run deploy
 
 `dist` 資料夾結構，可以看到 index.html 成功被打包
 
-```
+```sh
 .
 ├── dist
 │   ├── about.js
@@ -131,6 +131,7 @@ module.exports = {
 在html src index.js 路徑也可以調整一下，再引入 CSS 進來
 
 `index.html`
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -152,7 +153,7 @@ module.exports = {
 
 ```
 
-## sass-loader 
+## sass-loader
 
 ```sh
 # terminal
@@ -161,6 +162,7 @@ npm i -D sass-loader node-sass
 ```
 
 在 `webpack.config.js` 加入編譯 scss rules
+
 ```js
 // webpack.config.js
 module.exports = {
