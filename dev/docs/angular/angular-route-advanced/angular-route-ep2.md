@@ -95,7 +95,7 @@ const routes: Routes = [
 
 一開始在 login path 會預先載入 Angular 本身 bundle.js 
 
-![lazyLoading](images/lazyLoading.png =400x)
+![lazyLoading](../../assets/images/route/lazyLoading.png)
 
 接下來清空 network 資料後
 
@@ -103,4 +103,4 @@ const routes: Routes = [
 
 此時代表 lazy loading module 成功了
 
-![lazyLoading1](images/lazyLoading1.png =400x)
+![lazyLoading1](../../assets/images/route/lazyLoading1.png)
